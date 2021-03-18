@@ -16,13 +16,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class VehicleEntity {
+public class Vehicle {
 	@Id
-	private Integer vehicleNo;
+	private String vehicleNo;
 	//private Integer ownerId;
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "ownerId")
-	private OwnerEntity owner;
+	private Owner owner;
 	private String parkingNo;
 	private String basementLevel;
 	private String vehicleType;

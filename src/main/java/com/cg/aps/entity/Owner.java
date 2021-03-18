@@ -2,11 +2,10 @@ package com.cg.aps.entity;
 
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -18,7 +17,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class OwnerEntity {
+public class Owner {
 	@Id
 	private Integer ownerId;
 	private String ownerName;
@@ -26,13 +25,15 @@ public class OwnerEntity {
 	private Integer flatNo;
 	private Integer floorNo;
 	@OneToMany(mappedBy = "owner")
-	private Set<DeliveryEntity> deliverySet;
+	private Set<Delivery> deliverySet;
 	@OneToMany(mappedBy = "owner")
-	private Set<DomesticHelpEntity> helpSet;
+	private Set<DomesticHelp> helpSet;
 	@OneToMany(mappedBy = "owner")
-	private Set<VisitorEntity> visitorSet;
+	private Set<Visitor> visitorSet;
 	@OneToMany(mappedBy = "owner")
-	private Set<VehicleEntity> vehicleSet;
-	@ManyToMany(cascade = CascadeType.ALL)
-	private Set<SecurityAlertEntity> alertSet;
+	private Set<Vehicle> vehicleSet;
+	@OneToMany(mappedBy = "owner")
+	private Set<SecurityAlert> alertSet;
+	@OneToOne(mappedBy = "owner")
+	private User user;
 }

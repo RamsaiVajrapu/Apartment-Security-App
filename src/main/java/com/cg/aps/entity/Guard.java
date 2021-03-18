@@ -3,11 +3,10 @@ package com.cg.aps.entity;
 import java.time.LocalDate;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -19,7 +18,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class GuardEntity {
+public class Guard {
 	@Id
 	private Integer guardId;
 	private String guardName;
@@ -27,12 +26,14 @@ public class GuardEntity {
 	private String guardShift;
 	private LocalDate guardDate;
 	@OneToMany(mappedBy = "guard")
-	private Set<DeliveryEntity> deliverySet;
+	private Set<Delivery> deliverySet;
 	@OneToMany(mappedBy = "guard")
-	private Set<DomesticHelpEntity> helpSet;
+	private Set<DomesticHelp> helpSet;
 	@OneToMany(mappedBy = "guard")
-	private Set<VisitorEntity> visitorSet;
-	@ManyToMany(cascade = CascadeType.ALL)
-	private Set<SecurityAlertEntity> alertSet;
+	private Set<Visitor> visitorSet;
+	@OneToMany(mappedBy = "guard")
+	private Set<SecurityAlert> alertSet;
+	@OneToOne(mappedBy = "guard")
+	private User user;
 	
 }

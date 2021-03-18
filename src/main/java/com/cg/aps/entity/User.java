@@ -16,9 +16,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class UserEntity {
+public class User {
 	@Id
-	private Integer loginId;
+	private Integer userId;
 	private String password;
 	private String name;
 	private Long mobileNo;
@@ -27,8 +27,8 @@ public class UserEntity {
 	private String status;
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "guardId")
-	private GuardEntity guard;
+	private Guard guard;
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "ownerId")
-	private OwnerEntity owner;
+	private Owner owner;
 }

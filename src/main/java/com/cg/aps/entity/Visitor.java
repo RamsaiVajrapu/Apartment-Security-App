@@ -1,6 +1,6 @@
 package com.cg.aps.entity;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -16,25 +16,24 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "domestic-help")
+@Table(name = "visitors")
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class DomesticHelpEntity {
+public class Visitor {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer helpId;
-	//private Integer guardId;
+	private Integer visitorId;
+	private String VisitorName;
 	//private Integer ownerId;
-	private String PersonName;
-	private String helpType;
-	private String arrivalTime;
-	private String departureTime;
-	private LocalDate helpDate;
+	//private Integer guardId;
+	private Integer flatNo;
+	private LocalDateTime arrivalDateTime;
+	private LocalDateTime departureDateTime;
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "guardId")
-	private GuardEntity guard;
+	private Guard guard;
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "ownerId")
-	private OwnerEntity owner;
+	private Owner owner;
 }

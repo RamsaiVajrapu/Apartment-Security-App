@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class DeliveryEntity {
+public class Delivery {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer deliveryId;
@@ -31,9 +31,9 @@ public class DeliveryEntity {
 	private String status;
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "guardId")
-	private GuardEntity guard;
+	private Guard guard;
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "ownerId")
-	private OwnerEntity owner;
+	private Owner owner;
 	
 }
