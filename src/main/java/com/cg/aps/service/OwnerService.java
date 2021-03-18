@@ -12,7 +12,6 @@ public interface OwnerService {
 	public Integer addOwner(Owner owner) throws DuplicateRecordException;
 	public void updateOwner(Owner owner) throws RecordNotFoundException;
 	public void deleteOwner(Owner owner) throws RecordNotFoundException;
-	public Owner findByName(String name) throws RecordNotFoundException;
 	public Owner findByPk(Integer id) throws RecordNotFoundException;
 	public List<Owner> search(Long pageNo, Integer pageSize) throws DatabaseException;
 	public List<Owner> search() throws DatabaseException;
