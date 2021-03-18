@@ -1,7 +1,10 @@
 package com.cg.aps.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -22,4 +25,10 @@ public class UserEntity {
 	private String emailId;
 	private String role;
 	private String status;
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "guardId")
+	private GuardEntity guard;
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "ownerId")
+	private OwnerEntity owner;
 }
