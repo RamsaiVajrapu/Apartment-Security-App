@@ -10,9 +10,14 @@ import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
+/**
+ * 
+ * @author Devarshi
+ * entity class of vehicle module. vehicleNo is the primary key and joins column of owner class
+ *
+ */
 @Entity
-@Table(name = "vehicles")
+@Table(name = "vehicles_aps")
 @NoArgsConstructor
 @AllArgsConstructor
 @Data

@@ -12,9 +12,14 @@ import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
+/**
+ * 
+ * @author Naga Vishnu
+ * Guard's entity class and mapped by delivery, help, visitor and alerts
+ *
+ */
 @Entity
-@Table(name = "guards")
+@Table(name = "guards_aps")
 @NoArgsConstructor
 @AllArgsConstructor
 @Data

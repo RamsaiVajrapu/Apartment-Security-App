@@ -15,8 +15,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * 
+ * @author Ram Sai Vajrapu
+ * POJO class of visitors. visitor id is auto generated. owner and guard columns are joined
+ *
+ */
 @Entity
-@Table(name = "visitors")
+@Table(name = "visitors_aps")
 @NoArgsConstructor
 @AllArgsConstructor
 @Data

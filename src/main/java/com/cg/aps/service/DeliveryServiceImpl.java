@@ -15,7 +15,12 @@ import com.cg.aps.entity.Delivery;
 import com.cg.aps.exception.DatabaseException;
 import com.cg.aps.exception.DuplicateRecordException;
 import com.cg.aps.exception.RecordNotFoundException;
-
+/**
+ * 
+ * @author Shishir
+ * delivery service layer implementation of service interface
+ *
+ */
 @Service
 @Transactional
 public class DeliveryServiceImpl implements DeliveryService{
@@ -101,6 +106,17 @@ public class DeliveryServiceImpl implements DeliveryService{
 			throw new DatabaseException(e.getMessage());
 		}catch(Exception e) {
 			throw new DatabaseException(e.getMessage());
+		}
+	}
+
+	@Override
+	public List<Delivery> findByName(String name) throws RecordNotFoundException {
+		try {			
+			return deliveryDao.findByName(name);
+		}catch(DataAccessException e) {
+			throw new RecordNotFoundException(e.getMessage());
+		}catch(Exception e) {
+			throw new RecordNotFoundException(e.getMessage());
 		}
 	}
 

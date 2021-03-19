@@ -14,9 +14,14 @@ import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
+/**
+ * 
+ * @author Shishir
+ * delivery entity class, delivery id is auto generated
+ *
+ */
 @Entity
-@Table(name = "delivery")
+@Table(name = "delivery_aps")
 @NoArgsConstructor
 @AllArgsConstructor
 @Data

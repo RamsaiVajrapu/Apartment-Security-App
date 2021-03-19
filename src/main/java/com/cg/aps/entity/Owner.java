@@ -12,8 +12,15 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * 
+ * @author Vedang
+ * owner entity class and class has associations with delivery, domestic help, visitors,
+ * alerts and vehicles
+ *
+ */
 @Entity
-@Table(name = "owners")
+@Table(name = "owners_aps")
 @NoArgsConstructor
 @AllArgsConstructor
 @Data

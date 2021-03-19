@@ -14,9 +14,14 @@ import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
+/**
+ * 
+ * @author Harsh
+ * domestic help entity class, helpId is auto generated
+ *
+ */
 @Entity
-@Table(name = "domestic-help")
+@Table(name = "domestic_help_aps")
 @NoArgsConstructor
 @AllArgsConstructor
 @Data

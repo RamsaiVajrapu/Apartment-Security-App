@@ -11,8 +11,15 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * 
+ * @author Vikas
+ * login module POJO class(entity). two types of users 
+ * one is guard and other is owner
+ *
+ */
 @Entity
-@Table(name = "users")
+@Table(name = "users_aps")
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
