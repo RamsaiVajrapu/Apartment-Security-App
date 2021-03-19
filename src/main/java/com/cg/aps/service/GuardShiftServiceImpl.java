@@ -7,32 +7,29 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-import com.cg.aps.dao.OwnerDAO;
-import com.cg.aps.entity.Owner;
+import com.cg.aps.dao.GuardShiftDAO;
+import com.cg.aps.entity.GuardShift;
 import com.cg.aps.exception.DatabaseException;
 import com.cg.aps.exception.DuplicateRecordException;
 import com.cg.aps.exception.RecordNotFoundException;
+
 /**
  * 
- * @author Vedang
- * implementing the owner service interface
+ * @author Naga Vishnu
+ * guard shift service implementation class
  *
  */
-@Service
-@Transactional
-public class OwnerServiceImpl implements OwnerService{
+public class GuardShiftServiceImpl implements GuardShiftService{
 
 	@Autowired
-	private OwnerDAO ownerDao;
+	private GuardShiftDAO guardShiftDao;
 	
 	@Override
-	public Integer addOwner(Owner owner) throws DuplicateRecordException {
+	public Integer addGuardShift(GuardShift guardShift) throws DuplicateRecordException {
 		try {			
-			ownerDao.save(owner);
-			return owner.getOwnerId();
+			guardShiftDao.save(guardShift);
+			return guardShift.getShiftId();
 		}catch(DataAccessException e) {
 			throw new DuplicateRecordException(e.getMessage());
 		}catch(Exception e) {
@@ -41,33 +38,31 @@ public class OwnerServiceImpl implements OwnerService{
 	}
 
 	@Override
-	public void updateOwner(Owner owner) throws RecordNotFoundException {
+	public void updateGuardShift(GuardShift guardShift) throws RecordNotFoundException {
 		try {			
-			ownerDao.save(owner);
+			guardShiftDao.save(guardShift);
 		}catch(DataAccessException e) {
 			throw new RecordNotFoundException(e.getMessage());
 		}catch(Exception e) {
 			throw new RecordNotFoundException(e.getMessage());
 		}
-		
 	}
 
 	@Override
-	public void deleteOwner(Owner owner) throws RecordNotFoundException {
+	public void deleteGuardShift(GuardShift guardShift) throws RecordNotFoundException {
 		try {			
-			ownerDao.delete(owner);
+			guardShiftDao.delete(guardShift);
 		}catch(DataAccessException e) {
 			throw new RecordNotFoundException(e.getMessage());
 		}catch(Exception e) {
 			throw new RecordNotFoundException(e.getMessage());
 		}
-		
 	}
 
 	@Override
-	public Owner findByPk(Integer id) throws RecordNotFoundException {
+	public GuardShift findByPk(Integer id) throws RecordNotFoundException {
 		try {			
-			Optional<Owner> optional = ownerDao.findById(id);
+			Optional<GuardShift> optional = guardShiftDao.findById(id);
 			if(optional.isPresent()) {
 				return optional.get();
 			}else {
@@ -81,10 +76,10 @@ public class OwnerServiceImpl implements OwnerService{
 	}
 
 	@Override
-	public List<Owner> search(Integer pageNo, Integer pageSize) throws DatabaseException {
+	public List<GuardShift> search(Integer pageNo, Integer pageSize) throws DatabaseException {
 		try {	
 			PageRequest paging = PageRequest.of(pageNo, pageSize);
-			Page<Owner> pagedResult = ownerDao.findAll(paging);
+			Page<GuardShift> pagedResult = guardShiftDao.findAll(paging);
 			if(pagedResult.hasContent()) {
 				return pagedResult.getContent();
 			}else {
@@ -98,26 +93,15 @@ public class OwnerServiceImpl implements OwnerService{
 	}
 
 	@Override
-	public List<Owner> search() throws DatabaseException {
+	public List<GuardShift> search() throws DatabaseException {
 		try {			
-			return ownerDao.findAll();
+			return guardShiftDao.findAll();
 		}catch(DataAccessException e) {
 			throw new DatabaseException(e.getMessage());
 		}catch(Exception e) {
 			throw new DatabaseException(e.getMessage());
+		
 		}
 	}
-
-	@Override
-	public List<Owner> findByOwnerName(String name) throws RecordNotFoundException {
-		try {			
-			return ownerDao.findByOwnerName(name);
-		}catch(DataAccessException e) {
-			throw new RecordNotFoundException(e.getMessage());
-		}catch(Exception e) {
-			throw new RecordNotFoundException(e.getMessage());
-		}
-	}
-
 
 }

@@ -109,15 +109,15 @@ public class DomesticHelpServiceImpl implements DomesticHelpService{
 		}
 	}
 
-	/*@Override
-	public List<DomesticHelp> findByName(String name) throws RecordNotFoundException {
+	@Override
+	public List<DomesticHelp> findByPersonName(String name) throws RecordNotFoundException {
 		try {			
-			return domesticHelpDao.findByName(name);
+			return domesticHelpDao.findByPersonName(name);
 		}catch(DataAccessException e) {
 			throw new RecordNotFoundException(e.getMessage());
 		}catch(Exception e) {
 			throw new RecordNotFoundException(e.getMessage());
 		}
-	}*/
+	}
 
 }

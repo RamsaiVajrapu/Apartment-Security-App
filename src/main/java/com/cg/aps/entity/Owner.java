@@ -2,6 +2,7 @@ package com.cg.aps.entity;
 
 import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -27,10 +28,12 @@ import lombok.NoArgsConstructor;
 public class Owner {
 	@Id
 	private Integer ownerId;
+	@Column(nullable = false)
 	private String ownerName;
+	@Column(nullable = false)
 	private Long mobileNo;
-	private Integer flatNo;
-	private Integer floorNo;
+	@Column(nullable = false)
+	private String emailId;
 	@OneToMany(mappedBy = "owner")
 	private Set<Delivery> deliverySet;
 	@OneToMany(mappedBy = "owner")
@@ -41,6 +44,8 @@ public class Owner {
 	private Set<Vehicle> vehicleSet;
 	@OneToMany(mappedBy = "owner")
 	private Set<SecurityAlert> alertSet;
-	@OneToOne(mappedBy = "owner")
+	@OneToMany(mappedBy = "owner")
+	private Set<FlatDetails> FlatDetailsSet;
+	@OneToOne(mappedBy = "role")
 	private User user;
 }

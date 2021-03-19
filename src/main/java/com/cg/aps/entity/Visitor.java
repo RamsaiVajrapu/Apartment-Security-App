@@ -3,6 +3,7 @@ package com.cg.aps.entity;
 import java.time.LocalDateTime;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -30,10 +31,11 @@ public class Visitor {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer visitorId;
-	private String VisitorName;
-	//private Integer ownerId;
-	//private Integer guardId;
+	@Column(nullable = false)
+	private String visitorName;
+	@Column(nullable = false)
 	private Integer flatNo;
+	@Column(nullable = false)
 	private LocalDateTime arrivalDateTime;
 	private LocalDateTime departureDateTime;
 	@ManyToOne(cascade = CascadeType.ALL)

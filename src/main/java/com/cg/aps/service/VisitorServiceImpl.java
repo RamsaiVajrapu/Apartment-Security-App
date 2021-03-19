@@ -107,15 +107,15 @@ public class VisitorServiceImpl implements VisitorService{
 		}
 	}
 
-	/*@Override
-	public List<Visitor> findByName(String name) throws RecordNotFoundException {
+	@Override
+	public List<Visitor> findByVisitorName(String name) throws RecordNotFoundException {
 		try {			
-			return visitorDao.findByName(name);
+			return visitorDao.findByVisitorName(name);
 		}catch(DataAccessException e) {
 			throw new RecordNotFoundException(e.getMessage());
 		}catch(Exception e) {
 			throw new RecordNotFoundException(e.getMessage());
 		}
-	}*/
+	}
 
 }

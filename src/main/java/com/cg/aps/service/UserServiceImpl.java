@@ -110,29 +110,53 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public User authenticate(User user) throws ApplicationException {
-		// TODO Auto-generated method stub
-		return null;
+		try {			
+			Optional<User> optional = userDao.findById(user.getUserId());
+			if(optional.isPresent()) {
+				User temp = optional.get();
+				if(temp.getPassword()==user.getPassword()) {
+					return temp;
+				}else {
+					throw new Exception("Wrong password");
+				}
+			}else {
+				throw new Exception("User doesn't exit");
+			}
+		}catch(DataAccessException e) {
+			throw new ApplicationException(e.getMessage());
+		}catch(Exception e) {
+			throw new ApplicationException(e.getMessage());
+		}
 	}
 
 	@Override
 	public Boolean changePassword(Integer id, String oldPassword, String newPassword) throws ApplicationException {
-		// TODO Auto-generated method stub
-		return null;
+		try {			
+			Optional<User> optional = userDao.findById(id);
+			if(optional.isPresent()) {
+				User user = optional.get();
+				if(user.getPassword()==oldPassword) {
+					user.setPassword(newPassword);
+					return true;
+				}else {
+					throw new Exception("Wrong password");
+				}
+			}else {
+				throw new Exception("Invalid Id");
+			}
+		}catch(DataAccessException e) {
+			throw new ApplicationException(e.getMessage());
+		}catch(Exception e) {
+			throw new ApplicationException(e.getMessage());
+		}
 	}
+
+	/*
+	 * @Override public Boolean forgetPassword(String login) throws
+	 * RecordNotFoundException { // TODO Auto-generated method stub return null; }
+	 */
 
 	@Override
-	public Integer registerUser(User user) throws DuplicateRecordException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Boolean forgetPassword(String login) throws RecordNotFoundException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	/*@Override
 	public List<User> findByName(String name) throws RecordNotFoundException {
 		try {			
 			return userDao.findByName(name);
@@ -141,6 +165,6 @@ public class UserServiceImpl implements UserService{
 		}catch(Exception e) {
 			throw new RecordNotFoundException(e.getMessage());
 		}
-	}*/
+	}
 
 }

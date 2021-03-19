@@ -3,6 +3,7 @@ package com.cg.aps.entity;
 import java.time.LocalDate;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -29,12 +30,13 @@ public class DomesticHelp {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer helpId;
-	//private Integer guardId;
-	//private Integer ownerId;
-	private String PersonName;
+	@Column(nullable = false)
+	private String personName;
 	private String helpType;
+	@Column(nullable = false)
 	private String arrivalTime;
 	private String departureTime;
+	@Column(nullable = false)
 	private LocalDate helpDate;
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "guardId")

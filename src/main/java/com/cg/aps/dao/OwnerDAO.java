@@ -16,6 +16,6 @@ import com.cg.aps.entity.Owner;
 @Repository
 public interface OwnerDAO extends JpaRepository<Owner,Integer> {
 
-	//@Query("select o from Owner o where o.ownerName = :name")
-	//public List<Owner> findByName(String name) throws Exception;
+	@Query("select o from Owner o where o.ownerName = :name")
+	public List<Owner> findByOwnerName(String name) throws Exception;
 }

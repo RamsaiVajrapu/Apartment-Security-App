@@ -1,6 +1,6 @@
 package com.cg.aps.entity;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -17,30 +17,25 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 /**
  * 
- * @author Shishir
- * delivery entity class, delivery id is auto generated
+ * @author Naga Vishnu
+ * guard shift entity
  *
  */
 @Entity
-@Table(name = "delivery_aps")
+@Table(name = "guard_shift_aps")
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class Delivery {
+public class GuardShift {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer deliveryId;
+	private Integer shiftId;
 	@Column(nullable = false)
-	private String personName;
+	private String guardShift;
 	@Column(nullable = false)
-	private LocalDateTime deliveryDateTime;
-	@Column(columnDefinition = "varchar(255) default 'Pending'")
-	private String status;
+	private LocalDate guardDate;
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "guardId")
 	private Guard guard;
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "ownerId")
-	private Owner owner;
-	
 }

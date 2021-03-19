@@ -1,8 +1,8 @@
 package com.cg.aps.entity;
 
-import java.time.LocalDate;
 import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -26,10 +26,12 @@ import lombok.NoArgsConstructor;
 public class Guard {
 	@Id
 	private Integer guardId;
+	@Column(nullable = false)
 	private String guardName;
+	@Column(nullable = false)
 	private Long mobileNo;
-	private String guardShift;
-	private LocalDate guardDate;
+	@Column(nullable = false)
+	private String emailId;
 	@OneToMany(mappedBy = "guard")
 	private Set<Delivery> deliverySet;
 	@OneToMany(mappedBy = "guard")
@@ -38,7 +40,9 @@ public class Guard {
 	private Set<Visitor> visitorSet;
 	@OneToMany(mappedBy = "guard")
 	private Set<SecurityAlert> alertSet;
-	@OneToOne(mappedBy = "guard")
+	@OneToMany(mappedBy = "guard")
+	private Set<GuardShift> guardShiftSet;
+	@OneToOne(mappedBy = "role")
 	private User user;
 	
 }

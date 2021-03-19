@@ -28,8 +28,6 @@ public class SecurityAlert {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	//private Integer guardId;
-	//private Integer ownerId;
 	private String alertMessage;
 	private String alertType;
 	private LocalDate alertDate;

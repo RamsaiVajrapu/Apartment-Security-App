@@ -1,6 +1,7 @@
 package com.cg.aps.entity;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -24,10 +25,10 @@ import lombok.NoArgsConstructor;
 public class Vehicle {
 	@Id
 	private String vehicleNo;
-	//private Integer ownerId;
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "ownerId")
 	private Owner owner;
+	@Column(nullable = false)
 	private String parkingNo;
 	private String basementLevel;
 	private String vehicleType;

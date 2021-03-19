@@ -1,9 +1,8 @@
 package com.cg.aps.entity;
 
-import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -26,16 +25,16 @@ import lombok.NoArgsConstructor;
 public class User {
 	@Id
 	private Integer userId;
+	@Column(nullable = false,length = 20)
 	private String password;
+	@Column(nullable = false)
 	private String name;
+	@Column(nullable = false)
 	private Long mobileNo;
+	@Column(nullable = false)
 	private String emailId;
+	@Column(nullable = false)
+	@OneToOne
 	private String role;
-	private String status;
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "guardId")
-	private Guard guard;
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "ownerId")
-	private Owner owner;
+	
 }

@@ -29,25 +29,25 @@ public class OwnerController {
 	@Autowired
 	private OwnerService ownerService;
 	
-	/*
-	 * @GetMapping("/owners/{ownerId}") public ResponseEntity<Owner>
-	 * getOwnerById(@PathVariable Integer ownerId){ try { Owner owner =
-	 * ownerService.findByPk(ownerId); return new ResponseEntity<>(owner,
-	 * HttpStatus.OK); }catch(RecordNotFoundException e) { throw new
-	 * ResponseStatusException(HttpStatus.BAD_REQUEST,e.getMessage()); }
-	 * 
-	 * }
-	 * 
-	 * @GetMapping("/owners") public ResponseEntity<List<Owner>> getAllOwners(){ try
-	 * { List<Owner> ownerList = ownerService.search(); return new
-	 * ResponseEntity<>(ownerList, HttpStatus.OK); }catch(DatabaseException e) {
-	 * throw new ResponseStatusException(HttpStatus.BAD_REQUEST,e.getMessage()); } }
-	 * 
-	 * @PostMapping("/owners") public ResponseEntity<Integer> addOwner(@RequestBody
-	 * Owner owner) { try { Integer ownerId= ownerService.addOwner(owner); return
-	 * new ResponseEntity<>(ownerId, HttpStatus.OK); }catch(DuplicateRecordException
-	 * e) { throw new
-	 * ResponseStatusException(HttpStatus.BAD_REQUEST,e.getMessage()); } }
-	 */
+	
+	  @GetMapping("/owners/{ownerId}") public ResponseEntity<Owner>
+	  getOwnerById(@PathVariable Integer ownerId){ try { Owner owner =
+	  ownerService.findByPk(ownerId); return new ResponseEntity<>(owner,
+	  HttpStatus.OK); }catch(RecordNotFoundException e) { throw new
+	  ResponseStatusException(HttpStatus.BAD_REQUEST,e.getMessage()); }
+	  
+	  }
+	  
+	  @GetMapping("/owners") public ResponseEntity<List<Owner>> getAllOwners(){ try
+	  { List<Owner> ownerList = ownerService.search(); return new
+	  ResponseEntity<>(ownerList, HttpStatus.OK); }catch(DatabaseException e) {
+	  throw new ResponseStatusException(HttpStatus.BAD_REQUEST,e.getMessage()); } }
+	  
+	  @PostMapping("/owners") public ResponseEntity<Integer> addOwner(@RequestBody
+	  Owner owner) { try { Integer ownerId= ownerService.addOwner(owner); return
+	  new ResponseEntity<>(ownerId, HttpStatus.OK); }catch(DuplicateRecordException
+	  e) { throw new
+	  ResponseStatusException(HttpStatus.BAD_REQUEST,e.getMessage()); } }
+	 
 	
 }
