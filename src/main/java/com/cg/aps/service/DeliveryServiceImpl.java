@@ -110,9 +110,9 @@ public class DeliveryServiceImpl implements DeliveryService{
 	}
 
 	@Override
-	public List<Delivery> findByName(String name) throws RecordNotFoundException {
+	public List<Delivery> findByPersonName(String name) throws RecordNotFoundException {
 		try {			
-			return deliveryDao.findByName(name);
+			return deliveryDao.findByPersonName(name);
 		}catch(DataAccessException e) {
 			throw new RecordNotFoundException(e.getMessage());
 		}catch(Exception e) {

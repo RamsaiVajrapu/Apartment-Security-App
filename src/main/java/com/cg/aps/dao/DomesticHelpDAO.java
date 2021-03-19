@@ -16,6 +16,6 @@ import com.cg.aps.entity.DomesticHelp;
 @Repository
 public interface DomesticHelpDAO extends JpaRepository<DomesticHelp,Integer> {
 
-	@Query("select d from DomesticHelp d where d.personName = :name")
-	public List<DomesticHelp> findByName(String name) throws Exception;
+	//@Query("select d from DomesticHelp d where d.personName = :name")
+	//public List<DomesticHelp> findByName(String name) throws Exception;
 }

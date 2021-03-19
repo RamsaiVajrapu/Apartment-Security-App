@@ -18,7 +18,7 @@ public interface UserService {
 	public Integer addUser(User user) throws DuplicateRecordException;
 	public void updateUser(User user) throws RecordNotFoundException;
 	public void deleteUser(User user) throws RecordNotFoundException;
-	public List<User> findByName(String name) throws RecordNotFoundException;
+	//public List<User> findByName(String name) throws RecordNotFoundException;
 	public User findByPk(Integer id) throws RecordNotFoundException;
 	public List<User> search(Integer pageNo, Integer pageSize) throws DatabaseException;
 	public List<User> search() throws DatabaseException;

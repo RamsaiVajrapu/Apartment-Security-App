@@ -16,6 +16,6 @@ import com.cg.aps.entity.Guard;
 @Repository
 public interface GuardDAO extends JpaRepository<Guard,Integer> {
 
-	@Query("select g from Guard g where g.guardName = :name")
-	public List<Guard> findByName(String name) throws Exception;
+	//@Query("select g from Guard g where g.guardName = :name")
+	//public List<Guard> findByName(String name) throws Exception;
 }

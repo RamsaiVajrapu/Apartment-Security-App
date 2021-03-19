@@ -108,7 +108,7 @@ public class GuardServiceImpl implements GuardService{
 		}
 	}
 
-	@Override
+	/*@Override
 	public List<Guard> findByName(String name) throws RecordNotFoundException {
 		try {			
 			return guardDao.findByName(name);
@@ -117,6 +117,6 @@ public class GuardServiceImpl implements GuardService{
 		}catch(Exception e) {
 			throw new RecordNotFoundException(e.getMessage());
 		}
-	}
+	}*/
 
 }

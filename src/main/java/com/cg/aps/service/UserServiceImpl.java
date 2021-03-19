@@ -19,6 +19,7 @@ import com.cg.aps.exception.RecordNotFoundException;
 /**
  * 
  * @author Vikas
+ * implementation of user service interface
  *
  */
 @Service
@@ -131,7 +132,7 @@ public class UserServiceImpl implements UserService{
 		return null;
 	}
 
-	@Override
+	/*@Override
 	public List<User> findByName(String name) throws RecordNotFoundException {
 		try {			
 			return userDao.findByName(name);
@@ -140,6 +141,6 @@ public class UserServiceImpl implements UserService{
 		}catch(Exception e) {
 			throw new RecordNotFoundException(e.getMessage());
 		}
-	}
+	}*/
 
 }

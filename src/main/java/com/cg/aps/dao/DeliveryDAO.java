@@ -16,6 +16,6 @@ import com.cg.aps.entity.Delivery;
 @Repository
 public interface DeliveryDAO extends JpaRepository<Delivery,Integer> {
 
-	@Query("select d from delivery d where d.personName = :name")
-	public List<Delivery> findByName(String name) throws Exception;
+	@Query("select d from Delivery d where d.personName = :name")
+	public List<Delivery> findByPersonName(String name) throws Exception;
 }

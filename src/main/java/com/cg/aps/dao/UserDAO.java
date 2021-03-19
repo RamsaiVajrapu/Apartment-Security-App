@@ -16,7 +16,9 @@ import com.cg.aps.entity.User;
 @Repository
 public interface UserDAO extends JpaRepository<User,Integer> {
 
-	@Query("select u from User u where u.name = :name")
-	public List<User> findByName(String name) throws Exception;
+	//@Query("select u from User u where u.name = :name")
+	//public List<User> findByName(String name) throws Exception;
+	
+	
 
 }

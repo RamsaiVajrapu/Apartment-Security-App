@@ -16,6 +16,6 @@ import com.cg.aps.entity.Visitor;
 @Repository
 public interface VisitorDAO extends JpaRepository<Visitor,Integer> {
 
-	@Query("select v from Visitor v where v.visitorName = :name")
-	public List<Visitor> findByName(String name) throws Exception;
+	//@Query("select v from Visitor v where v.visitorName = :name")
+	//public List<Visitor> findByName(String name) throws Exception;
 }

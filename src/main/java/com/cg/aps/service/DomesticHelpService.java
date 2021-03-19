@@ -17,7 +17,7 @@ public interface DomesticHelpService {
 	public Integer addDomesticHelp(DomesticHelp domesticHelp) throws DuplicateRecordException;
 	public void updateDomesticHelp(DomesticHelp domesticHelp) throws RecordNotFoundException;
 	public void deleteDomesticHelp(DomesticHelp domesticHelp) throws RecordNotFoundException;
-	public List<DomesticHelp> findByName(String name) throws RecordNotFoundException;
+	//public List<DomesticHelp> findByName(String name) throws RecordNotFoundException;
 	public DomesticHelp findByPk(Integer id) throws RecordNotFoundException;
 	public List<DomesticHelp> search(Integer pageNo, Integer pageSize) throws DatabaseException;
 	public List<DomesticHelp> search() throws DatabaseException;

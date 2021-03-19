@@ -108,7 +108,7 @@ public class OwnerServiceImpl implements OwnerService{
 		}
 	}
 
-	@Override
+	/*@Override
 	public List<Owner> findByName(String name) throws RecordNotFoundException {
 		try {			
 			return ownerDao.findByName(name);
@@ -117,7 +117,7 @@ public class OwnerServiceImpl implements OwnerService{
 		}catch(Exception e) {
 			throw new RecordNotFoundException(e.getMessage());
 		}
-	}
+	}*/
 
 
 }
