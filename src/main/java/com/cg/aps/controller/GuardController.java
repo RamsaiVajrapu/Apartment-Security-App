@@ -95,7 +95,6 @@ public class GuardController {
 	 */
 	@PostMapping("/alert")
 	public ResponseEntity<Integer> addAlert(@RequestBody SecurityAlert securityAlert) {
-		System.out.println("in guard controller: addAlert : "+securityAlert);
 		try {
 			Integer alertId = alertService.addSecurityAlert(securityAlert);
 			return new ResponseEntity<>(alertId,HttpStatus.OK);
