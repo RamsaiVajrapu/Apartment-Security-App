@@ -5,6 +5,8 @@ import java.time.LocalDateTime;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -36,11 +38,11 @@ public class Delivery {
 	private LocalDateTime deliveryDateTime;
 	@Column(columnDefinition = "varchar(255) default 'Pending'")
 	private String status;
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "guardId")
+	@ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+	@JoinColumn(foreignKey = @ForeignKey(name = "guardId"),name = "guardId")
 	private Guard guard;
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "ownerId")
+	@ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+	@JoinColumn(foreignKey = @ForeignKey(name = "ownerId"),name = "ownerId")
 	private Owner owner;
 	
 }

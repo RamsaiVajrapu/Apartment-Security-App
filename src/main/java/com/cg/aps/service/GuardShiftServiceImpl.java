@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.cg.aps.dao.GuardShiftDAO;
 import com.cg.aps.entity.GuardShift;
@@ -20,14 +22,17 @@ import com.cg.aps.exception.RecordNotFoundException;
  * guard shift service implementation class
  *
  */
+@Service
+@Transactional
 public class GuardShiftServiceImpl implements GuardShiftService{
 
 	@Autowired
 	private GuardShiftDAO guardShiftDao;
 	
+	
 	@Override
 	public Integer addGuardShift(GuardShift guardShift) throws DuplicateRecordException {
-		try {			
+		try {	
 			guardShiftDao.save(guardShift);
 			return guardShift.getShiftId();
 		}catch(DataAccessException e) {

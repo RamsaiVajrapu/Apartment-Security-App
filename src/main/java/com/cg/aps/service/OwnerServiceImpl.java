@@ -30,7 +30,7 @@ public class OwnerServiceImpl implements OwnerService{
 	
 	@Override
 	public Integer addOwner(Owner owner) throws DuplicateRecordException {
-		try {			
+		try {	
 			ownerDao.save(owner);
 			return owner.getOwnerId();
 		}catch(DataAccessException e) {

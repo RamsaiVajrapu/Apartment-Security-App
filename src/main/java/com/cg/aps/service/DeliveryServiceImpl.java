@@ -30,7 +30,7 @@ public class DeliveryServiceImpl implements DeliveryService{
 	
 	@Override
 	public Integer addDelivery(Delivery delivery) throws DuplicateRecordException {
-		try {			
+		try {
 			deliveryDao.save(delivery);
 			return delivery.getDeliveryId();
 		}catch(DataAccessException e) {

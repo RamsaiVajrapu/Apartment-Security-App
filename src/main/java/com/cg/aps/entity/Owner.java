@@ -2,12 +2,18 @@ package com.cg.aps.entity;
 
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.ForeignKey;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -35,17 +41,33 @@ public class Owner {
 	@Column(nullable = false)
 	private String emailId;
 	@OneToMany(mappedBy = "owner")
+	@JsonIgnore
 	private Set<Delivery> deliverySet;
 	@OneToMany(mappedBy = "owner")
+	@JsonIgnore
 	private Set<DomesticHelp> helpSet;
 	@OneToMany(mappedBy = "owner")
+	@JsonIgnore
 	private Set<Visitor> visitorSet;
 	@OneToMany(mappedBy = "owner")
+	@JsonIgnore
 	private Set<Vehicle> vehicleSet;
 	@OneToMany(mappedBy = "owner")
+	@JsonIgnore
 	private Set<SecurityAlert> alertSet;
-	@OneToMany(mappedBy = "owner")
-	private Set<FlatDetails> FlatDetailsSet;
-	@OneToOne(mappedBy = "role")
+	@OneToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+	@JoinColumn(foreignKey = @ForeignKey(name = "flatId"),name = "flatId")
+	@JsonIgnore
+	private FlatDetails flatDetails;
+	@OneToOne(mappedBy = "owner")
+	@JsonIgnore
 	private User user;
+	/*
+	 * public Owner(Integer ownerId, String ownerName, Long mobileNo, String
+	 * emailId, User user) { super(); this.ownerId = ownerId; this.ownerName =
+	 * ownerName; this.mobileNo = mobileNo; this.emailId = emailId; this.user =
+	 * user; }
+	 */
+	
+	
 }

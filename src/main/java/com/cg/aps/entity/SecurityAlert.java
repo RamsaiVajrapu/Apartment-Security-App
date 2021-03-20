@@ -4,11 +4,16 @@ import java.time.LocalDate;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -31,8 +36,12 @@ public class SecurityAlert {
 	private String alertMessage;
 	private String alertType;
 	private LocalDate alertDate;
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+	@JoinColumn(foreignKey = @ForeignKey(name = "guardId"),name = "guardId")
+	@JsonIgnore
 	private Guard guard;
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+	@JoinColumn(foreignKey = @ForeignKey(name = "ownerId"),name = "ownerId")
+	@JsonIgnore
 	private Owner owner;
 }

@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.cg.aps.dao.FlatDetailsDAO;
 import com.cg.aps.entity.FlatDetails;
@@ -20,6 +22,8 @@ import com.cg.aps.exception.RecordNotFoundException;
  * implementation class of flat details service
  *
  */
+@Service
+@Transactional
 public class FlatDetailsServiceImpl implements FlatDetailsService{
 
 	@Autowired

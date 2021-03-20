@@ -27,10 +27,11 @@ public class VehicleServiceImpl implements VehicleService{
 
 	@Autowired
 	private VehicleDAO vehicleDao;
+
 	
 	@Override
 	public String addVehicle(Vehicle vehicle) throws DuplicateRecordException {
-		try {			
+		try {	
 			vehicleDao.save(vehicle);
 			return vehicle.getVehicleNo();
 		}catch(DataAccessException e) {

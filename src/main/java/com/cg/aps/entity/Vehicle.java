@@ -3,6 +3,8 @@ package com.cg.aps.entity;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.ForeignKey;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -25,8 +27,8 @@ import lombok.NoArgsConstructor;
 public class Vehicle {
 	@Id
 	private String vehicleNo;
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "ownerId")
+	@ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+	@JoinColumn(foreignKey = @ForeignKey(name = "ownerId"),name = "ownerId")
 	private Owner owner;
 	@Column(nullable = false)
 	private String parkingNo;

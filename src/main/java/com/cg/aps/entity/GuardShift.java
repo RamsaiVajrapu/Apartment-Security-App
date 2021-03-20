@@ -5,6 +5,8 @@ import java.time.LocalDate;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -35,7 +37,7 @@ public class GuardShift {
 	private String guardShift;
 	@Column(nullable = false)
 	private LocalDate guardDate;
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "guardId")
+	@ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+	@JoinColumn(foreignKey = @ForeignKey(name = "guardId"),name = "guardId")
 	private Guard guard;
 }

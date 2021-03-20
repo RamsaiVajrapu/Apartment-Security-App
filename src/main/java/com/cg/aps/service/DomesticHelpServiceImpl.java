@@ -30,7 +30,7 @@ public class DomesticHelpServiceImpl implements DomesticHelpService{
 	
 	@Override
 	public Integer addDomesticHelp(DomesticHelp domesticHelp) throws DuplicateRecordException {
-		try {			
+		try {	
 			domesticHelpDao.save(domesticHelp);
 			return domesticHelp.getHelpId();
 		}catch(DataAccessException e) {

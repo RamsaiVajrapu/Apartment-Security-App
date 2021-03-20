@@ -27,10 +27,11 @@ public class VisitorServiceImpl implements VisitorService{
 
 	@Autowired
 	private VisitorDAO visitorDao;
+
 	
 	@Override
 	public Integer addVisitor(Visitor visitor) throws DuplicateRecordException {
-		try {			
+		try {		
 			visitorDao.save(visitor);
 			return visitor.getVisitorId();
 		}catch(DataAccessException e) {

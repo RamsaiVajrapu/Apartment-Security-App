@@ -28,9 +28,11 @@ public class SecurityAlertServiceImpl implements SecurityAlertService{
 	@Autowired
 	private SecurityAlertDAO securityAlertDao;
 	
+	
 	@Override
 	public Integer addSecurityAlert(SecurityAlert securityAlert) throws DuplicateRecordException {
-		try {			
+		System.out.println("addSecurityAlertCalled : "+ securityAlert);
+		try {	
 			securityAlertDao.save(securityAlert);
 			return securityAlert.getId();
 		}catch(DataAccessException e) {
