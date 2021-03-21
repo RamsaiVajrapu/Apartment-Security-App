@@ -24,7 +24,7 @@ import lombok.NoArgsConstructor;
 public class FlatDetails {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer flatId;
 	@Column(nullable = false)
 	private Integer flatNo;

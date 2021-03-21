@@ -31,7 +31,7 @@ import lombok.NoArgsConstructor;
 public class GuardShift {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer shiftId;
 	@Column(nullable = false)
 	private String guardShift;

@@ -53,7 +53,7 @@ public class FlatDetailsServiceImpl implements FlatDetailsService{
 	}
 
 	@Override
-	public void deleteDelivery(FlatDetails flatDetails) throws RecordNotFoundException {
+	public void deleteFlatDetails(FlatDetails flatDetails) throws RecordNotFoundException {
 		try {			
 			flatDetailsDao.delete(flatDetails);
 		}catch(DataAccessException e) {

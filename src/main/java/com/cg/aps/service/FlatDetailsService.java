@@ -18,7 +18,7 @@ public interface FlatDetailsService {
 
 	public Integer addFlatDetails(FlatDetails flatDetails) throws DuplicateRecordException;
 	public void updateFlatDetails(FlatDetails flatDetails) throws RecordNotFoundException;
-	public void deleteDelivery(FlatDetails flatDetails) throws RecordNotFoundException;
+	public void deleteFlatDetails(FlatDetails flatDetails) throws RecordNotFoundException;
 	public FlatDetails findByPk(Integer id) throws RecordNotFoundException;
 	public List<FlatDetails> search(Integer pageNo, Integer pageSize) throws DatabaseException;
 	public List<FlatDetails> search() throws DatabaseException;

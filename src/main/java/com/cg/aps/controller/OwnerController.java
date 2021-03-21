@@ -17,6 +17,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.cg.aps.entity.Delivery;
 import com.cg.aps.entity.DomesticHelp;
+import com.cg.aps.entity.FlatDetails;
 import com.cg.aps.entity.SecurityAlert;
 import com.cg.aps.entity.Vehicle;
 import com.cg.aps.entity.Visitor;
@@ -25,11 +26,13 @@ import com.cg.aps.exception.DuplicateRecordException;
 import com.cg.aps.exception.RecordNotFoundException;
 import com.cg.aps.service.DeliveryService;
 import com.cg.aps.service.DomesticHelpService;
+import com.cg.aps.service.FlatDetailsService;
 import com.cg.aps.service.SecurityAlertService;
 import com.cg.aps.service.VehicleService;
 import com.cg.aps.service.VisitorService;
 
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 /**
  * 
  * @author Vedang
@@ -48,6 +51,11 @@ public class OwnerController {
 	 * @param alertId
 	 * @return alert
 	 */
+	@ApiOperation(value = "Get security alert",
+			response = SecurityAlert.class,
+			tags = "get-alert",
+			consumes = "alertId",
+			httpMethod = "GET")
 	@GetMapping("/alert/{alertId}")
 	public ResponseEntity<SecurityAlert> getAlertById(@PathVariable Integer alertId){
 		try {
@@ -62,6 +70,10 @@ public class OwnerController {
 	 * @author Ram Sai Vajrapu
 	 * @return all alerts
 	 */
+	@ApiOperation(value = "Get all security alerts",
+			response = SecurityAlert.class,
+			tags = "get-all-alert",
+			httpMethod = "GET")
 	@GetMapping("/alert")
 	public ResponseEntity<List<SecurityAlert>> getAllAlerts(){
 		try {
@@ -78,6 +90,11 @@ public class OwnerController {
 	 * @param pageSize
 	 * @return alerts of the pageNo with pageSize
 	 */
+	@ApiOperation(value = "Get security alert by page no and page size",
+			response = SecurityAlert.class,
+			tags = "get-alerts",
+			consumes = "page no and page size",
+			httpMethod = "GET")
 	@GetMapping("/alert/{pageNo}/{pageSize}")
 	public ResponseEntity<List<SecurityAlert>> getAlerts(@PathVariable Integer pageNo,@PathVariable Integer pageSize){
 		try {
@@ -93,6 +110,11 @@ public class OwnerController {
 	 * @param securityAlert
 	 * @return adds alert
 	 */
+	@ApiOperation(value = "add security alert",
+			response = Integer.class,
+			tags = "add-alert",
+			consumes = "security alert object",
+			httpMethod = "POST")
 	@PostMapping("/alert")
 	public ResponseEntity<Integer> addAlert(@RequestBody SecurityAlert securityAlert) {
 		try {
@@ -108,6 +130,11 @@ public class OwnerController {
 	 * @param securityAlert
 	 * @return updating alerts
 	 */
+	@ApiOperation(value = "update security alert",
+			response = String.class,
+			tags = "update-alert",
+			consumes = "security alert object",
+			httpMethod = "PUT")
 	@PutMapping("/alert")
 	public ResponseEntity<String> updateEmployee(@RequestBody SecurityAlert securityAlert) {
 		try {
@@ -123,6 +150,11 @@ public class OwnerController {
 	 * @param empno
 	 * @return
 	 */
+	@ApiOperation(value = "delete security alert",
+			response = String.class,
+			tags = "delete-alert",
+			consumes = "security alert object",
+			httpMethod = "DELETE")
 	@DeleteMapping("/alert")
 	public ResponseEntity<String> deleteEmployee(@RequestBody SecurityAlert securityAlert) {
 		try {
@@ -138,11 +170,18 @@ public class OwnerController {
 	
 	@Autowired
 	private DeliveryService deliveryService;
+	
+	
 	/**
 	 * @author Shishir
 	 * @param deliveryId
 	 * @return delivery
 	 */
+	@ApiOperation(value = "get delivery by Id",
+			response = Delivery.class,
+			tags = "get-delivery",
+			consumes = "deliveryId",
+			httpMethod = "GET")
 	@GetMapping("/delivery/{deliveryId}")
 	public ResponseEntity<Delivery> getDeliveryById(@PathVariable Integer deliveryId){
 		try {
@@ -157,6 +196,10 @@ public class OwnerController {
 	 * @author Shishir
 	 * @return all deliveries
 	 */
+	@ApiOperation(value = "get all deliveries",
+			response = Delivery.class,
+			tags = "get-all-deliveries",
+			httpMethod = "GET")
 	@GetMapping("/delivery")
 	public ResponseEntity<List<Delivery>> getAllDeliveries(){
 		try {
@@ -173,6 +216,11 @@ public class OwnerController {
 	 * @param pageSize
 	 * @return deliveries of the pageNo with pageSize
 	 */
+	@ApiOperation(value = "get deliveries by page no and page size",
+			response = Delivery.class,
+			tags = "get-delivery",
+			consumes = "page no and page size",
+			httpMethod = "GET")
 	@GetMapping("/delivery/{pageNo}/{pageSize}")
 	public ResponseEntity<List<Delivery>> getDeliveries(@PathVariable Integer pageNo,@PathVariable Integer pageSize){
 		try {
@@ -188,6 +236,11 @@ public class OwnerController {
 	 * @param Delivery
 	 * @return adds delivery
 	 */
+	@ApiOperation(value = "add delivery",
+			response = Integer.class,
+			tags = "add-delivery",
+			consumes = "delivery object",
+			httpMethod = "POST")
 	@PostMapping("/delivery")
 	public ResponseEntity<Integer> addDelivery(@RequestBody Delivery delivery) {
 		try {
@@ -203,6 +256,11 @@ public class OwnerController {
 	 * @param delivery
 	 * @return updating delivery
 	 */
+	@ApiOperation(value = "update delivery",
+			response = String.class,
+			tags = "update-delivery",
+			consumes = "delivery object",
+			httpMethod = "PUT")
 	@PutMapping("/delivery")
 	public ResponseEntity<String> updateDelivery(@RequestBody Delivery delivery) {
 		try {
@@ -218,6 +276,11 @@ public class OwnerController {
 	 * @param delivery
 	 * @return deleting delivery
 	 */
+	@ApiOperation(value = "delete delivery",
+			response = String.class,
+			tags = "delete-delivery",
+			consumes = "delivery object",
+			httpMethod = "DELETE")
 	@DeleteMapping("/delivery")
 	public ResponseEntity<String> deleteDelivery(@RequestBody Delivery delivery) {
 		try {
@@ -232,11 +295,17 @@ public class OwnerController {
 	@Autowired
 	private DomesticHelpService domesticHelpService;
 	
+	
 	/**
 	 * @author Harsh
 	 * @param helpId
 	 * @return Help
 	 */
+	@ApiOperation(value = "get domestic help by Id",
+			response = DomesticHelp.class,
+			tags = "get-help",
+			consumes = "helpId",
+			httpMethod = "GET")
 	@GetMapping("/domesticHelp/{helpId}")
 	public ResponseEntity<DomesticHelp> getDomesticHelpById(@PathVariable Integer helpId){
 		try {
@@ -251,6 +320,10 @@ public class OwnerController {
 	 * @author Harsh
 	 * @return all helps
 	 */
+	@ApiOperation(value = "get all domestic help",
+			response = DomesticHelp.class,
+			tags = "get-all-help",
+			httpMethod = "GET")
 	@GetMapping("/domesticHelp")
 	public ResponseEntity<List<DomesticHelp>> getAllHelps(){
 		try {
@@ -267,6 +340,11 @@ public class OwnerController {
 	 * @param pageSize
 	 * @return helps of the pageNo with pageSize
 	 */
+	@ApiOperation(value = "get domestic help by page no and page size",
+			response = DomesticHelp.class,
+			tags = "get-help",
+			consumes = "page no and page size",
+			httpMethod = "GET")
 	@GetMapping("/domesticHelp/{pageNo}/{pageSize}")
 	public ResponseEntity<List<DomesticHelp>> getHelps(@PathVariable Integer pageNo,@PathVariable Integer pageSize){
 		try {
@@ -282,6 +360,11 @@ public class OwnerController {
 	 * @param DomesticHelp
 	 * @return adds domesticHelp
 	 */
+	@ApiOperation(value = "add domestic help",
+			response = Integer.class,
+			tags = "add-help",
+			consumes = "domestic help",
+			httpMethod = "POST")
 	@PostMapping("/domesticHelp")
 	public ResponseEntity<Integer> addHelp(@RequestBody DomesticHelp domesticHelp) {
 		try {
@@ -297,6 +380,11 @@ public class OwnerController {
 	 * @param DomesticHelp
 	 * @return updating DomesticHelp
 	 */
+	@ApiOperation(value = "update domestic help",
+			response = String.class,
+			tags = "update-help",
+			consumes = "domestic help",
+			httpMethod = "PUT")
 	@PutMapping("/domesticHelp")
 	public ResponseEntity<String> updateHelp(@RequestBody DomesticHelp domesticHelp) {
 		try {
@@ -312,6 +400,11 @@ public class OwnerController {
 	 * @param DomesticHelp
 	 * @return deleting DomesticHelp
 	 */
+	@ApiOperation(value = "delete domestic help",
+			response = String.class,
+			tags = "delete-help",
+			consumes = "domestic help",
+			httpMethod = "DELETE")
 	@DeleteMapping("/domesticHelp")
 	public ResponseEntity<String> deleteHelp(@RequestBody DomesticHelp domesticHelp) {
 		try {
@@ -333,6 +426,11 @@ public class OwnerController {
 	 * @param VisitorId
 	 * @return Visitor
 	 */
+	@ApiOperation(value = "get visitor by id",
+			response = Visitor.class,
+			tags = "get-visitor",
+			consumes = "visitorId",
+			httpMethod = "GET")
 	@GetMapping("/visitor/{visitorId}")
 	public ResponseEntity<Visitor> getVisitorById(@PathVariable Integer visitorId){
 		try {
@@ -347,6 +445,10 @@ public class OwnerController {
 	 * @author Ram Sai Vajrapu
 	 * @return all visitors
 	 */
+	@ApiOperation(value = "get all visitors",
+			response = Visitor.class,
+			tags = "get-all-visitor",
+			httpMethod = "GET")
 	@GetMapping("/visitor")
 	public ResponseEntity<List<Visitor>> getAllVisitors(){
 		try {
@@ -363,6 +465,11 @@ public class OwnerController {
 	 * @param pageSize
 	 * @return Visitor of the pageNo with pageSize
 	 */
+	@ApiOperation(value = "get visitors by page no and page size",
+			response = Visitor.class,
+			tags = "get-visitors",
+			consumes = "page no and page size",
+			httpMethod = "GET")
 	@GetMapping("/visitor/{pageNo}/{pageSize}")
 	public ResponseEntity<List<Visitor>> getVisitors(@PathVariable Integer pageNo,@PathVariable Integer pageSize){
 		try {
@@ -378,6 +485,11 @@ public class OwnerController {
 	 * @param Visitor
 	 * @return adds Visitor
 	 */
+	@ApiOperation(value = "add visitor",
+			response = Integer.class,
+			tags = "add-visitor",
+			consumes = "visitor object",
+			httpMethod = "POST")
 	@PostMapping("/visitor")
 	public ResponseEntity<Integer> addVisitor(@RequestBody Visitor visitor) {
 		try {
@@ -393,6 +505,11 @@ public class OwnerController {
 	 * @param Visitor
 	 * @return updating Visitor
 	 */
+	@ApiOperation(value = "update visitor",
+			response = String.class,
+			tags = "update-visitor",
+			consumes = "visitor object",
+			httpMethod = "PUT")
 	@PutMapping("/visitor")
 	public ResponseEntity<String> updateVisitor(@RequestBody Visitor visitor) {
 		try {
@@ -408,6 +525,11 @@ public class OwnerController {
 	 * @param Visitor
 	 * @return deleting Visitor
 	 */
+	@ApiOperation(value = "delete visitor",
+			response = String.class,
+			tags = "delete-visitor",
+			consumes = "visitor object",
+			httpMethod = "DELETE")
 	@DeleteMapping("/visitor")
 	public ResponseEntity<String> deleteVisitor(@RequestBody Visitor visitor) {
 		try {
@@ -429,6 +551,11 @@ public class OwnerController {
 	 * @param VehicleId
 	 * @return Vehicle
 	 */
+	@ApiOperation(value = "get vehicle by id",
+			response = Vehicle.class,
+			tags = "get-vehicle",
+			consumes = "vehicleId",
+			httpMethod = "GET")
 	@GetMapping("/vehicle/{vehicleId}")
 	public ResponseEntity<Vehicle> getVehicleById(@PathVariable String vehicleId){
 		try {
@@ -443,6 +570,10 @@ public class OwnerController {
 	 * @author Devarshi
 	 * @return all Vehicles
 	 */
+	@ApiOperation(value = "get all vehicle",
+			response = Vehicle.class,
+			tags = "get-all-vehicle",
+			httpMethod = "GET")
 	@GetMapping("/vehicle")
 	public ResponseEntity<List<Vehicle>> getAllVehicles(){
 		try {
@@ -459,6 +590,11 @@ public class OwnerController {
 	 * @param pageSize
 	 * @return Vehicle of the pageNo with pageSize
 	 */
+	@ApiOperation(value = "get vehicles by page no and page size",
+			response = Vehicle.class,
+			tags = "get-vehicles",
+			consumes = "page no and page size",
+			httpMethod = "GET")
 	@GetMapping("/vehicle/{pageNo}/{pageSize}")
 	public ResponseEntity<List<Vehicle>> getVehicles(@PathVariable Integer pageNo,@PathVariable Integer pageSize){
 		try {
@@ -474,6 +610,11 @@ public class OwnerController {
 	 * @param vehicle
 	 * @return adds vehicle
 	 */
+	@ApiOperation(value = "add vehicle",
+			response = Integer.class,
+			tags = "add-vehicle",
+			consumes = "vehicle object",
+			httpMethod = "POST")
 	@PostMapping("/vehicle")
 	public ResponseEntity<String> addVehicle(@RequestBody Vehicle vehicle) {
 		try {
@@ -489,6 +630,11 @@ public class OwnerController {
 	 * @param vehicle
 	 * @return updating vehicle
 	 */
+	@ApiOperation(value = "update vehicle",
+			response = String.class,
+			tags = "update-vehicle",
+			consumes = "vehicle object",
+			httpMethod = "PUT")
 	@PutMapping("/vehicle")
 	public ResponseEntity<String> updateVehicle(@RequestBody Vehicle vehicle) {
 		try {
@@ -504,10 +650,140 @@ public class OwnerController {
 	 * @param vehicle
 	 * @return deleting vehicle
 	 */
+	@ApiOperation(value = "delete vehicle",
+			response = String.class,
+			tags = "delete-vehicle",
+			consumes = "vehicle object",
+			httpMethod = "DELETE")
 	@DeleteMapping("/vehicle")
 	public ResponseEntity<String> deleteVehicle(@RequestBody Vehicle vehicle) {
 		try {
 			vehicleService.deleteVehicle(vehicle);
+			return new ResponseEntity<>("Deleted successfully",HttpStatus.OK);
+		}catch(RecordNotFoundException e){
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST,e.getMessage());
+		}
+	}
+	
+	
+	
+	
+	@Autowired
+	private FlatDetailsService flatDetailsService;
+	
+	/**
+	 * @author Vedang
+	 * @param flatDetailsId
+	 * @return flatDetails
+	 */
+	@ApiOperation(value = "get flat details by id",
+			response = FlatDetails.class,
+			tags = "get-flatdetails",
+			consumes = "flatDetailsId",
+			httpMethod = "GET")
+	@GetMapping("/flatDetails/{flatDetailsId}")
+	public ResponseEntity<FlatDetails> getFlatDetailsById(@PathVariable Integer flatDetailsId){
+		try {
+			FlatDetails flatDetails = flatDetailsService.findByPk(flatDetailsId);
+			return new ResponseEntity<>(flatDetails,HttpStatus.OK);
+		}catch(RecordNotFoundException e){
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST,e.getMessage());
+		}
+	}
+	
+	/**
+	 * @author Vedang
+	 * @return all flatDetails
+	 */
+	@ApiOperation(value = "get all flat details",
+			response = FlatDetails.class,
+			tags = "get-all-flatdetails",
+			httpMethod = "GET")
+	@GetMapping("/flatDetails")
+	public ResponseEntity<List<FlatDetails>> getAllFlatDetails(){
+		try {
+			List<FlatDetails> flatDetailsList = flatDetailsService.search();
+			return new ResponseEntity<>(flatDetailsList,HttpStatus.OK);
+		}catch(DatabaseException e){
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST,e.getMessage());
+		}
+	}
+	
+	/**
+	 * @author Vedang
+	 * @param pageNo
+	 * @param pageSize
+	 * @return flatDetails of the pageNo with pageSize
+	 */
+	@ApiOperation(value = "get flat details by page no and page size",
+			response = FlatDetails.class,
+			tags = "get-flatdetails",
+			consumes = "page no and page size",
+			httpMethod = "GET")
+	@GetMapping("/flatDetails/{pageNo}/{pageSize}")
+	public ResponseEntity<List<FlatDetails>> getflatDetails(@PathVariable Integer pageNo,@PathVariable Integer pageSize){
+		try {
+			List<FlatDetails> flatDetailsList = flatDetailsService.search(pageNo, pageSize);
+			return new ResponseEntity<>(flatDetailsList,HttpStatus.OK);
+		}catch(DatabaseException e){
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST,e.getMessage());
+		}
+	}
+	
+	/**
+	 * @author Vedang
+	 * @param flatDetails
+	 * @return adds flatDetails
+	 */
+	@ApiOperation(value = "add flat details",
+			response = Integer.class,
+			tags = "add-flatdetails",
+			consumes = "flatDetails object",
+			httpMethod = "POST")
+	@PostMapping("/flatDetails")
+	public ResponseEntity<Integer> addFlatDetails(@RequestBody FlatDetails flatDetails) {
+		try {
+			Integer flatDetailsId = flatDetailsService.addFlatDetails(flatDetails);
+			return new ResponseEntity<>(flatDetailsId,HttpStatus.OK);
+		}catch(DuplicateRecordException e){
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST,e.getMessage());
+		}
+	}
+	
+	/**
+	 * @author Vedang
+	 * @param flatDetails
+	 * @return updating flatDetails
+	 */
+	@ApiOperation(value = "update flat details",
+			response = String.class,
+			tags = "update-flatdetails",
+			consumes = "flatDetails object",
+			httpMethod = "PUT")
+	@PutMapping("/flatDetails")
+	public ResponseEntity<String> updateFlatDetails(@RequestBody FlatDetails flatDetails) {
+		try {
+			flatDetailsService.updateFlatDetails(flatDetails);
+			return new ResponseEntity<>("updated successfully",HttpStatus.OK);
+		}catch(RecordNotFoundException e){
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST,e.getMessage());
+		}
+	}
+	
+	/**
+	 * @author Vedang
+	 * @param flatDetails
+	 * @return deleting flatDetails
+	 */
+	@ApiOperation(value = "delete flat details",
+			response = String.class,
+			tags = "delete-flatdetails",
+			consumes = "flatDetails object",
+			httpMethod = "DELETE")
+	@DeleteMapping("/flatDetails")
+	public ResponseEntity<String> deleteflatDetails(@RequestBody FlatDetails flatDetails) {
+		try {
+			flatDetailsService.deleteFlatDetails(flatDetails);
 			return new ResponseEntity<>("Deleted successfully",HttpStatus.OK);
 		}catch(RecordNotFoundException e){
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST,e.getMessage());

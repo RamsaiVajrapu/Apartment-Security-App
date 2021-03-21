@@ -5,8 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,13 +18,16 @@ import org.springframework.web.server.ResponseStatusException;
 import com.cg.aps.entity.Guard;
 import com.cg.aps.entity.Owner;
 import com.cg.aps.entity.User;
+import com.cg.aps.exception.ApplicationException;
 import com.cg.aps.exception.DatabaseException;
 import com.cg.aps.exception.DuplicateRecordException;
+import com.cg.aps.exception.RecordNotFoundException;
 import com.cg.aps.service.GuardService;
 import com.cg.aps.service.OwnerService;
 import com.cg.aps.service.UserService;
 
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 /**
  * 
  * @author Vikas
@@ -41,7 +47,14 @@ public class UserController {
 	@Autowired
 	private GuardService guardService;
 	 
-	
+	/**
+	 * @author Vikas
+	 * @return all users
+	 */
+	@ApiOperation(value = "Get all users",
+			response = User.class,
+			tags = "get-all-users",
+			httpMethod = "GET")
 	@GetMapping("/users")
 	public ResponseEntity<List<User>> getAllUsers() {
 		try {
@@ -51,7 +64,37 @@ public class UserController {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST,e.getMessage());
 		}
 	}
+	
+	/**
+	 * @author Vikas
+	 * @param userId
+	 * @return a user with userId
+	 */
+	@ApiOperation(value = "Get user by Id",
+			response = User.class,
+			tags = "get-user",
+			consumes = "userId",
+			httpMethod = "GET")
+	@GetMapping("/users/{userId}")
+	public ResponseEntity<User> getUserById(@PathVariable Integer userId){
+		try {
+			User user = userService.findByPk(userId);
+			return new ResponseEntity<>(user,HttpStatus.OK);
+		}catch(RecordNotFoundException e){
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST,e.getMessage());
+		}
+	}
 
+	/**
+	 * @author Vikas
+	 * @param user
+	 * @return id of the user
+	 */
+	@ApiOperation(value = "Add user",
+			response = Integer.class,
+			tags = "add-user",
+			consumes = "User object",
+			httpMethod = "POST")
 	@PostMapping("/users")
 	public ResponseEntity<Integer> addUser(@RequestBody User user) {
 		try {
@@ -77,5 +120,231 @@ public class UserController {
 		}
 	}
 	
+	/**
+	 * @author Vikas
+	 * @param user
+	 * @return update message
+	 */
+	@ApiOperation(value = "update user",
+			response = String.class,
+			tags = "update-user",
+			consumes = "User object",
+			httpMethod = "PUT")
+	@PutMapping("/users")
+	public ResponseEntity<String> updateUser(@RequestBody User user){
+		try {
+			userService.updateUser(user);
+			if(user.getRole().toLowerCase().equals("owner")) {
+				Owner owner = ownerService.findByPk(user.getUserId());
+				owner.setOwnerId(user.getUserId());
+				owner.setOwnerName(user.getName());
+				owner.setEmailId(user.getEmailId());
+				owner.setMobileNo(user.getMobileNo());
+				ownerService.updateOwner(owner);
+			}else if(user.getRole().toLowerCase().equals("guard")) {
+				Guard guard = guardService.findByPk(user.getUserId());
+				guard.setGuardId(user.getUserId());
+				guard.setGuardName(user.getName());
+				guard.setEmailId(user.getEmailId());
+				guard.setMobileNo(user.getMobileNo());
+				guardService.updateGuard(guard);
+			}
+			return new ResponseEntity<>("updated successfully",HttpStatus.OK);
+		}catch(RecordNotFoundException e) {
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST,e.getMessage());
+		}
+	}
 	
+	/**
+	 * @author Vikas
+	 * @param user
+	 * @return delete message
+	 */
+	@ApiOperation(value = "delete user",
+			response = String.class,
+			tags = "delete-user",
+			consumes = "User object",
+			httpMethod = "DELETE")
+	@DeleteMapping("/users")
+	public ResponseEntity<String> deleteUser(@RequestBody User user){
+		try {
+			userService.deleteUser(user);
+			if(user.getRole().toLowerCase().equals("owner")) {
+				Owner owner = ownerService.findByPk(user.getUserId());
+				ownerService.deleteOwner(owner);
+			}else if(user.getRole().toLowerCase().equals("guard")) {
+				Guard guard = guardService.findByPk(user.getUserId());
+				guardService.deleteGuard(guard);
+			}
+			return new ResponseEntity<>("deleted successfully",HttpStatus.OK);
+		}catch(RecordNotFoundException e) {
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST,e.getMessage());
+		}
+	}
+	
+	
+	/**
+	 * @author Vedang
+	 * @param ownerId
+	 * @return owner
+	 */
+	@ApiOperation(value = "Get owner by Id",
+			response = Owner.class,
+			tags = "get-owner",
+			consumes = "ownerId",
+			httpMethod = "GET")
+	@GetMapping("/owner/{ownerId}")
+	public ResponseEntity<Owner> getOwnerById(@PathVariable Integer ownerId){
+		try {
+			Owner owner = ownerService.findByPk(ownerId);
+			return new ResponseEntity<>(owner,HttpStatus.OK);
+		}catch(RecordNotFoundException e){
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST,e.getMessage());
+		}
+	}
+	
+	/**
+	 * @author Vedang
+	 * @return all owners
+	 */
+	@ApiOperation(value = "Get all owners",
+			response = Owner.class,
+			tags = "get-all-owners",
+			httpMethod = "GET")
+	@GetMapping("/owner")
+	public ResponseEntity<List<Owner>> getAllOwners(){
+		try {
+			List<Owner> ownerList = ownerService.search();
+			return new ResponseEntity<>(ownerList,HttpStatus.OK);
+		}catch(DatabaseException e){
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST,e.getMessage());
+		}
+	}
+	
+	/**
+	 * @author Vedang
+	 * @param pageNo
+	 * @param pageSize
+	 * @return owner of the pageNo with pageSize
+	 */
+	@ApiOperation(value = "Get owner by page no and page size",
+			response = Owner.class,
+			tags = "get-owner",
+			consumes = "pageNo and PageSize",
+			httpMethod = "GET")
+	@GetMapping("/owner/{pageNo}/{pageSize}")
+	public ResponseEntity<List<Owner>> getOwner(@PathVariable Integer pageNo,@PathVariable Integer pageSize){
+		try {
+			List<Owner> ownerList = ownerService.search(pageNo, pageSize);
+			return new ResponseEntity<>(ownerList,HttpStatus.OK);
+		}catch(DatabaseException e){
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST,e.getMessage());
+		}
+	}
+	
+	
+	
+	/**
+	 * @author Naga Vishnu
+	 * @param guardId
+	 * @return guard
+	 */
+	@ApiOperation(value = "Get guard by Id",
+			response = Guard.class,
+			tags = "get-guard",
+			consumes = "guardId",
+			httpMethod = "GET")
+	@GetMapping("/guard/{guardId}")
+	public ResponseEntity<Guard> getGuardById(@PathVariable Integer guardId){
+		try {
+			Guard guard = guardService.findByPk(guardId);
+			return new ResponseEntity<>(guard,HttpStatus.OK);
+		}catch(RecordNotFoundException e){
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST,e.getMessage());
+		}
+	}
+	
+	/**
+	 * @author Naga Vishnu
+	 * @return all guards
+	 */
+	@ApiOperation(value = "Get all guards",
+			response = Guard.class,
+			tags = "get-all-guards",
+			httpMethod = "GET")
+	@GetMapping("/guard")
+	public ResponseEntity<List<Guard>> getAllGuards(){
+		try {
+			List<Guard> guardList = guardService.search();
+			return new ResponseEntity<>(guardList,HttpStatus.OK);
+		}catch(DatabaseException e){
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST,e.getMessage());
+		}
+	}
+	
+	/**
+	 * @author Naga Vishnu
+	 * @param pageNo
+	 * @param pageSize
+	 * @return guard of the pageNo with pageSize
+	 */
+	@ApiOperation(value = "Get guards by page no and page size",
+			response = Guard.class,
+			tags = "get-guards",
+			consumes = "pageNo and PageSize",
+			httpMethod = "GET")
+	@GetMapping("/guard/{pageNo}/{pageSize}")
+	public ResponseEntity<List<Guard>> getGuard(@PathVariable Integer pageNo,@PathVariable Integer pageSize){
+		try {
+			List<Guard> guardList = guardService.search(pageNo, pageSize);
+			return new ResponseEntity<>(guardList,HttpStatus.OK);
+		}catch(DatabaseException e){
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST,e.getMessage());
+		}
+	}
+	
+	
+	/**
+	 * @author Vikas
+	 * @param user
+	 * @return verification
+	 */
+	@ApiOperation(value = "authentication",
+			response = String.class,
+			tags = "authenticate-user",
+			consumes = "User object",
+			httpMethod = "GET")
+	@GetMapping("/login")
+	public ResponseEntity<String> getUserAuthentication(@RequestBody User user){
+		try {
+			userService.authenticate(user);
+			return new ResponseEntity<>("Logged In",HttpStatus.OK);
+		}catch(ApplicationException e){
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST,e.getMessage());
+		}
+	}
+	
+	
+	
+	/**
+	 * @author Ram Sai Vajrapu
+	 * @param id
+	 * @param oldPassword
+	 * @param newPassword
+	 * @return true or false
+	 */
+	@ApiOperation(value = "update password",
+			response = Boolean.class,
+			tags = "update-password",
+			consumes = "userId, old password, new password",
+			httpMethod = "PUT")
+	@PutMapping("/updatePassword")
+	public ResponseEntity<Boolean> updateUserPassword(@PathVariable Integer id,@PathVariable String oldPassword,@PathVariable String newPassword){
+		try {
+			Boolean check = userService.changePassword(id, oldPassword, newPassword);
+			return new ResponseEntity<>(check,HttpStatus.OK);
+		}catch(ApplicationException e){
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST,e.getMessage());
+		}
+	}
 }

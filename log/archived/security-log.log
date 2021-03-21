@@ -1,0 +1,171 @@
+2021-03-21 11:14:22,687 INFO com.cg.aps.application.ApartmentSecurityAppApplication [restartedMain] Starting ApartmentSecurityAppApplication using Java 1.8.0_281 on RAMSAI-VAJRAPU with PID 23896 (E:\CG Sprints\main\Apartment-Security-App\target\classes started by Ram Sai Vajrapu in E:\CG Sprints\main\Apartment-Security-App)
+2021-03-21 11:14:22,691 DEBUG com.cg.aps.application.ApartmentSecurityAppApplication [restartedMain] Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-03-21 11:14:22,692 INFO com.cg.aps.application.ApartmentSecurityAppApplication [restartedMain] No active profile set, falling back to default profiles: default
+2021-03-21 11:14:22,797 INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-03-21 11:14:22,798 INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-03-21 11:14:24,035 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-03-21 11:14:24,137 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 90 ms. Found 10 JPA repository interfaces.
+2021-03-21 11:14:26,011 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2021-03-21 11:14:26,027 INFO org.apache.coyote.http11.Http11NioProtocol [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2021-03-21 11:14:26,027 INFO org.apache.catalina.core.StandardService [restartedMain] Starting service [Tomcat]
+2021-03-21 11:14:26,027 INFO org.apache.catalina.core.StandardEngine [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-03-21 11:14:26,203 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [restartedMain] Initializing Spring embedded WebApplicationContext
+2021-03-21 11:14:26,203 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 3404 ms
+2021-03-21 11:14:26,646 INFO org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-03-21 11:14:26,721 INFO org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 5.4.28.Final
+2021-03-21 11:14:26,901 INFO org.hibernate.annotations.common.Version [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-03-21 11:14:27,065 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2021-03-21 11:14:27,776 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2021-03-21 11:14:27,820 INFO org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2021-03-21 11:14:30,134 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-03-21 11:14:30,145 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-03-21 11:14:30,167 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2021-03-21 11:14:31,545 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-03-21 11:14:31,825 INFO org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2021-03-21 11:14:32,038 INFO org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2021-03-21 11:14:32,415 INFO org.apache.coyote.http11.Http11NioProtocol [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2021-03-21 11:14:32,453 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2021-03-21 11:14:33,424 INFO com.cg.aps.application.ApartmentSecurityAppApplication [restartedMain] Started ApartmentSecurityAppApplication in 11.442 seconds (JVM running for 12.981)
+2021-03-21 11:15:29,506 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-03-21 11:15:29,506 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-2] Initializing Servlet 'dispatcherServlet'
+2021-03-21 11:15:29,508 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-2] Completed initialization in 2 ms
+2021-03-21 11:15:29,581 DEBUG com.cg.aps.aspect.LoggerAspectUser [http-nio-8080-exec-2] Entering method : com.cg.aps.controller.UserController.getAllOwners() with argument[s] = []
+2021-03-21 11:15:29,708 DEBUG com.cg.aps.aspect.LoggerAspectUser [http-nio-8080-exec-2] Exiting method: com.cg.aps.controller.UserController.getAllOwners() with result = <200 OK OK,[],[]>
+2021-03-21 11:16:00,004 DEBUG com.cg.aps.aspect.LoggerAspectGuard [http-nio-8080-exec-3] Entering method : com.cg.aps.controller.GuardController.addAlert() with argument[s] = [SecurityAlert(id=45, alertMessage=fire, alertType=emergency, alertDate=2020-01-10, guard=null, owner=null)]
+2021-03-21 11:16:00,196 DEBUG com.cg.aps.aspect.LoggerAspectGuard [http-nio-8080-exec-3] Exiting method: com.cg.aps.controller.GuardController.addAlert() with result = <200 OK OK,45,[]>
+2021-03-21 11:16:28,837 DEBUG com.cg.aps.aspect.LoggerAspectGuard [http-nio-8080-exec-4] Entering method : com.cg.aps.controller.GuardController.getAllAlerts() with argument[s] = []
+2021-03-21 11:16:28,867 DEBUG com.cg.aps.aspect.LoggerAspectGuard [http-nio-8080-exec-4] Exiting method: com.cg.aps.controller.GuardController.getAllAlerts() with result = <200 OK OK,[SecurityAlert(id=5, alertMessage=fire, alertType=emergency, alertDate=2020-01-10, guard=null, owner=null)],[]>
+2021-03-21 11:18:27,493 DEBUG com.cg.aps.aspect.LoggerAspectGuard [http-nio-8080-exec-7] Entering method : com.cg.aps.controller.GuardController.getAlertById() with argument[s] = [5]
+2021-03-21 11:18:27,505 DEBUG com.cg.aps.aspect.LoggerAspectGuard [http-nio-8080-exec-7] Exiting method: com.cg.aps.controller.GuardController.getAlertById() with result = <200 OK OK,SecurityAlert(id=5, alertMessage=fire, alertType=emergency, alertDate=2020-01-10, guard=null, owner=null),[]>
+2021-03-21 11:18:31,513 DEBUG com.cg.aps.aspect.LoggerAspectGuard [http-nio-8080-exec-8] Entering method : com.cg.aps.controller.GuardController.getAlertById() with argument[s] = [6]
+2021-03-21 11:18:31,515 ERROR com.cg.aps.aspect.LoggerAspectGuard [http-nio-8080-exec-8] Error in com.cg.aps.controller.GuardController.getAlertById()
+2021-03-21 11:18:31,515 ERROR com.cg.aps.aspect.LoggerAspectGuard [http-nio-8080-exec-8] 400 BAD_REQUEST "Invalid id"
+2021-03-21 11:18:31,515 ERROR com.cg.aps.aspect.LoggerAspectGuard [http-nio-8080-exec-8] 400 BAD_REQUEST "Invalid id"
+2021-03-21 11:18:31,521 WARN org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver [http-nio-8080-exec-8] Resolved [org.springframework.web.server.ResponseStatusException: 400 BAD_REQUEST "Invalid id"]
+2021-03-21 11:19:11,779 DEBUG com.cg.aps.aspect.LoggerAspectGuard [http-nio-8080-exec-10] Entering method : com.cg.aps.controller.GuardController.getAlertById() with argument[s] = [5]
+2021-03-21 11:19:11,783 DEBUG com.cg.aps.aspect.LoggerAspectGuard [http-nio-8080-exec-10] Exiting method: com.cg.aps.controller.GuardController.getAlertById() with result = <200 OK OK,SecurityAlert(id=5, alertMessage=fire, alertType=emergency, alertDate=2020-01-10, guard=null, owner=null),[]>
+2021-03-21 13:04:13,175 INFO com.cg.aps.application.ApartmentSecurityAppApplication [restartedMain] Starting ApartmentSecurityAppApplication using Java 1.8.0_281 on RAMSAI-VAJRAPU with PID 20440 (E:\CG Sprints\main\Apartment-Security-App\target\classes started by Ram Sai Vajrapu in E:\CG Sprints\main\Apartment-Security-App)
+2021-03-21 13:04:13,184 DEBUG com.cg.aps.application.ApartmentSecurityAppApplication [restartedMain] Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-03-21 13:04:13,185 INFO com.cg.aps.application.ApartmentSecurityAppApplication [restartedMain] No active profile set, falling back to default profiles: default
+2021-03-21 13:04:13,295 INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-03-21 13:04:13,295 INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-03-21 13:04:14,505 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-03-21 13:04:14,609 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 92 ms. Found 10 JPA repository interfaces.
+2021-03-21 13:04:16,331 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2021-03-21 13:04:16,344 INFO org.apache.coyote.http11.Http11NioProtocol [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2021-03-21 13:04:16,345 INFO org.apache.catalina.core.StandardService [restartedMain] Starting service [Tomcat]
+2021-03-21 13:04:16,345 INFO org.apache.catalina.core.StandardEngine [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-03-21 13:04:16,496 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [restartedMain] Initializing Spring embedded WebApplicationContext
+2021-03-21 13:04:16,496 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 3200 ms
+2021-03-21 13:04:16,875 INFO org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-03-21 13:04:16,951 INFO org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 5.4.28.Final
+2021-03-21 13:04:17,155 INFO org.hibernate.annotations.common.Version [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-03-21 13:04:17,298 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2021-03-21 13:04:17,967 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2021-03-21 13:04:18,013 INFO org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2021-03-21 13:04:20,322 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-03-21 13:04:20,338 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-03-21 13:04:20,355 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2021-03-21 13:04:21,768 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-03-21 13:04:22,105 INFO org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2021-03-21 13:04:22,670 INFO org.apache.coyote.http11.Http11NioProtocol [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2021-03-21 13:04:22,695 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2021-03-21 13:04:23,511 INFO com.cg.aps.application.ApartmentSecurityAppApplication [restartedMain] Started ApartmentSecurityAppApplication in 10.937 seconds (JVM running for 12.212)
+2021-03-21 13:04:37,463 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-03-21 13:04:37,463 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2021-03-21 13:04:37,466 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] Completed initialization in 3 ms
+2021-03-21 13:04:37,517 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-1] No mapping for GET /springfox/swagger-ui/index.html
+2021-03-21 13:04:37,957 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-2] No mapping for GET /favicon.ico
+2021-03-21 13:06:32,367 INFO com.cg.aps.application.ApartmentSecurityAppApplication [restartedMain] Starting ApartmentSecurityAppApplication using Java 1.8.0_281 on RAMSAI-VAJRAPU with PID 21244 (E:\CG Sprints\main\Apartment-Security-App\target\classes started by Ram Sai Vajrapu in E:\CG Sprints\main\Apartment-Security-App)
+2021-03-21 13:06:32,372 DEBUG com.cg.aps.application.ApartmentSecurityAppApplication [restartedMain] Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-03-21 13:06:32,372 INFO com.cg.aps.application.ApartmentSecurityAppApplication [restartedMain] No active profile set, falling back to default profiles: default
+2021-03-21 13:06:32,532 INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-03-21 13:06:32,533 INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-03-21 13:06:33,857 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-03-21 13:06:34,045 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 169 ms. Found 10 JPA repository interfaces.
+2021-03-21 13:06:36,322 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2021-03-21 13:06:36,338 INFO org.apache.coyote.http11.Http11NioProtocol [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2021-03-21 13:06:36,339 INFO org.apache.catalina.core.StandardService [restartedMain] Starting service [Tomcat]
+2021-03-21 13:06:36,340 INFO org.apache.catalina.core.StandardEngine [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-03-21 13:06:36,513 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [restartedMain] Initializing Spring embedded WebApplicationContext
+2021-03-21 13:06:36,514 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 3981 ms
+2021-03-21 13:06:37,037 INFO org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-03-21 13:06:37,133 INFO org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 5.4.28.Final
+2021-03-21 13:06:37,372 INFO org.hibernate.annotations.common.Version [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-03-21 13:06:37,530 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2021-03-21 13:06:38,322 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2021-03-21 13:06:38,399 INFO org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2021-03-21 13:06:41,623 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-03-21 13:06:41,642 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-03-21 13:06:41,661 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2021-03-21 13:06:42,919 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-03-21 13:06:43,207 INFO org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2021-03-21 13:06:43,758 INFO org.apache.coyote.http11.Http11NioProtocol [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2021-03-21 13:06:43,782 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2021-03-21 13:06:43,980 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-03-21 13:06:43,980 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2021-03-21 13:06:43,986 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] Completed initialization in 6 ms
+2021-03-21 13:06:44,023 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-1] No mapping for GET /springfox/swagger-ui/index.html
+2021-03-21 13:06:44,840 INFO com.cg.aps.application.ApartmentSecurityAppApplication [restartedMain] Started ApartmentSecurityAppApplication in 13.028 seconds (JVM running for 14.409)
+2021-03-21 13:28:48,738 INFO com.cg.aps.application.ApartmentSecurityAppApplication [restartedMain] Starting ApartmentSecurityAppApplication using Java 1.8.0_281 on RAMSAI-VAJRAPU with PID 4300 (E:\CG Sprints\main\Apartment-Security-App\target\classes started by Ram Sai Vajrapu in E:\CG Sprints\main\Apartment-Security-App)
+2021-03-21 13:28:48,741 DEBUG com.cg.aps.application.ApartmentSecurityAppApplication [restartedMain] Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-03-21 13:28:48,741 INFO com.cg.aps.application.ApartmentSecurityAppApplication [restartedMain] No active profile set, falling back to default profiles: default
+2021-03-21 13:28:48,863 INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-03-21 13:28:48,863 INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-03-21 13:28:50,413 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-03-21 13:28:50,523 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 97 ms. Found 10 JPA repository interfaces.
+2021-03-21 13:28:52,322 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2021-03-21 13:28:52,355 INFO org.apache.coyote.http11.Http11NioProtocol [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2021-03-21 13:28:52,356 INFO org.apache.catalina.core.StandardService [restartedMain] Starting service [Tomcat]
+2021-03-21 13:28:52,357 INFO org.apache.catalina.core.StandardEngine [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-03-21 13:28:52,615 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/springfox] [restartedMain] Initializing Spring embedded WebApplicationContext
+2021-03-21 13:28:52,615 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 3751 ms
+2021-03-21 13:28:53,401 INFO org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-03-21 13:28:53,469 INFO org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 5.4.28.Final
+2021-03-21 13:28:53,806 INFO org.hibernate.annotations.common.Version [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-03-21 13:28:53,979 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2021-03-21 13:28:54,666 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2021-03-21 13:28:54,711 INFO org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2021-03-21 13:28:57,171 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-03-21 13:28:57,182 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-03-21 13:28:57,206 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2021-03-21 13:28:58,604 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-03-21 13:28:58,950 INFO org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2021-03-21 13:28:59,580 INFO org.apache.coyote.http11.Http11NioProtocol [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2021-03-21 13:28:59,606 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path '/springfox'
+2021-03-21 13:29:00,766 INFO com.cg.aps.application.ApartmentSecurityAppApplication [restartedMain] Started ApartmentSecurityAppApplication in 12.611 seconds (JVM running for 13.738)
+2021-03-21 13:29:08,152 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/springfox] [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-03-21 13:29:08,153 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2021-03-21 13:29:08,158 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] Completed initialization in 4 ms
+2021-03-21 13:30:23,160 DEBUG com.cg.aps.aspect.LoggerAspectOwner [http-nio-8080-exec-9] Entering method : com.cg.aps.controller.OwnerController.getAllDeliveries() with argument[s] = []
+2021-03-21 13:30:23,324 DEBUG com.cg.aps.aspect.LoggerAspectOwner [http-nio-8080-exec-9] Exiting method: com.cg.aps.controller.OwnerController.getAllDeliveries() with result = <200 OK OK,[],[]>
+2021-03-21 15:07:29,773 INFO com.cg.aps.application.ApartmentSecurityAppApplication [restartedMain] Starting ApartmentSecurityAppApplication using Java 1.8.0_281 on RAMSAI-VAJRAPU with PID 18848 (E:\CG Sprints\main\Apartment-Security-App\target\classes started by Ram Sai Vajrapu in E:\CG Sprints\main\Apartment-Security-App)
+2021-03-21 15:07:29,775 DEBUG com.cg.aps.application.ApartmentSecurityAppApplication [restartedMain] Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-03-21 15:07:29,777 INFO com.cg.aps.application.ApartmentSecurityAppApplication [restartedMain] No active profile set, falling back to default profiles: default
+2021-03-21 15:07:29,875 INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-03-21 15:07:29,876 INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-03-21 15:07:31,145 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-03-21 15:07:31,231 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 77 ms. Found 10 JPA repository interfaces.
+2021-03-21 15:07:32,613 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2021-03-21 15:07:32,625 INFO org.apache.coyote.http11.Http11NioProtocol [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2021-03-21 15:07:32,625 INFO org.apache.catalina.core.StandardService [restartedMain] Starting service [Tomcat]
+2021-03-21 15:07:32,626 INFO org.apache.catalina.core.StandardEngine [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-03-21 15:07:32,764 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/springfox] [restartedMain] Initializing Spring embedded WebApplicationContext
+2021-03-21 15:07:32,764 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 2887 ms
+2021-03-21 15:07:33,094 INFO org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-03-21 15:07:33,158 INFO org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 5.4.28.Final
+2021-03-21 15:07:33,326 INFO org.hibernate.annotations.common.Version [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-03-21 15:07:33,453 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2021-03-21 15:07:34,109 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2021-03-21 15:07:34,151 INFO org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2021-03-21 15:07:36,336 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-03-21 15:07:36,360 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-03-21 15:07:36,387 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2021-03-21 15:07:37,910 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-03-21 15:07:38,139 INFO org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2021-03-21 15:07:38,585 INFO org.apache.coyote.http11.Http11NioProtocol [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2021-03-21 15:07:38,604 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path '/springfox'
+2021-03-21 15:07:39,333 INFO com.cg.aps.application.ApartmentSecurityAppApplication [restartedMain] Started ApartmentSecurityAppApplication in 10.148 seconds (JVM running for 11.235)
+2021-03-21 15:08:01,125 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/springfox] [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-03-21 15:08:01,125 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2021-03-21 15:08:01,128 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] Completed initialization in 3 ms

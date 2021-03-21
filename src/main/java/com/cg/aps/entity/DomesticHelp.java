@@ -30,7 +30,7 @@ import lombok.NoArgsConstructor;
 @Data
 public class DomesticHelp {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer helpId;
 	@Column(nullable = false)
 	private String personName;

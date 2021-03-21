@@ -31,7 +31,7 @@ import lombok.NoArgsConstructor;
 @Data
 public class Visitor {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer visitorId;
 	@Column(nullable = false)
 	private String visitorName;
