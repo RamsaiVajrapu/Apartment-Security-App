@@ -3,7 +3,6 @@ package com.cg.aps.entity;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ForeignKey;
@@ -34,11 +33,8 @@ import lombok.NoArgsConstructor;
 public class Owner {
 	@Id
 	private Integer ownerId;
-	@Column(nullable = false)
 	private String ownerName;
-	@Column(nullable = false)
 	private Long mobileNo;
-	@Column(nullable = false)
 	private String emailId;
 	@OneToMany(mappedBy = "owner")
 	@JsonIgnore

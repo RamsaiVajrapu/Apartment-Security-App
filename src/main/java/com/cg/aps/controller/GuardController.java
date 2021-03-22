@@ -145,8 +145,8 @@ public class GuardController {
 	
 	/**
 	 * @author Ram Sai Vajrapu
-	 * @param empno
-	 * @return
+	 * @param alert object
+	 * @return deletes alert
 	 */
 	@ApiOperation(value = "delete security alert",
 			response = String.class,

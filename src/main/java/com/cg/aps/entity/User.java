@@ -1,7 +1,6 @@
 package com.cg.aps.entity;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
@@ -29,15 +28,10 @@ import lombok.NoArgsConstructor;
 public class User {
 	@Id
 	private Integer userId;
-	@Column(nullable = false,length = 20)
 	private String password;
-	@Column(nullable = false)
 	private String name;
-	@Column(nullable = false)
 	private Long mobileNo;
-	@Column(nullable = false)
 	private String emailId;
-	@Column(nullable = false)
 	private String role;
 	@OneToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
 	@JsonIgnore

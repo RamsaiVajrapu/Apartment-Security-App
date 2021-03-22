@@ -1,6 +1,5 @@
 package com.cg.aps.entity;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,8 +25,6 @@ public class FlatDetails {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer flatId;
-	@Column(nullable = false)
 	private Integer flatNo;
-	@Column(nullable = false)
 	private Integer floorNo;
 }

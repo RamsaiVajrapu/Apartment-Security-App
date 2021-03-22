@@ -2,7 +2,6 @@ package com.cg.aps.entity;
 
 import java.util.Set;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -28,11 +27,8 @@ import lombok.NoArgsConstructor;
 public class Guard {
 	@Id
 	private Integer guardId;
-	@Column(nullable = false)
 	private String guardName;
-	@Column(nullable = false)
 	private Long mobileNo;
-	@Column(nullable = false)
 	private String emailId;
 	@OneToMany(mappedBy = "guard")
 	@JsonIgnore

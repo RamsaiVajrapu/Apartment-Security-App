@@ -3,7 +3,6 @@ package com.cg.aps.entity;
 import java.time.LocalDate;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ForeignKey;
@@ -13,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -32,18 +33,17 @@ public class DomesticHelp {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer helpId;
-	@Column(nullable = false)
 	private String personName;
 	private String helpType;
-	@Column(nullable = false)
 	private String arrivalTime;
 	private String departureTime;
-	@Column(nullable = false)
 	private LocalDate helpDate;
 	@ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
 	@JoinColumn(foreignKey = @ForeignKey(name = "guardId"),name = "guardId")
+	@JsonIgnore
 	private Guard guard;
 	@ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
 	@JoinColumn(foreignKey = @ForeignKey(name = "ownerId"),name = "ownerId")
+	@JsonIgnore
 	private Owner owner;
 }
