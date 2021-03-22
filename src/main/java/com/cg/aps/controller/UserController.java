@@ -67,7 +67,7 @@ public class UserController {
 	
 	/**
 	 * @author Vikas
-	 * @param userId
+	 * @param userId - id of user
 	 * @return a user with userId
 	 */
 	@ApiOperation(value = "Get user by Id",
@@ -87,7 +87,7 @@ public class UserController {
 
 	/**
 	 * @author Vikas
-	 * @param user
+	 * @param user - user object
 	 * @return id of the user
 	 */
 	@ApiOperation(value = "Add user",
@@ -122,7 +122,7 @@ public class UserController {
 	
 	/**
 	 * @author Vikas
-	 * @param user
+	 * @param user - user object
 	 * @return update message
 	 */
 	@ApiOperation(value = "update user",
@@ -157,7 +157,7 @@ public class UserController {
 	
 	/**
 	 * @author Vikas
-	 * @param user
+	 * @param user - user object
 	 * @return delete message
 	 */
 	@ApiOperation(value = "delete user",
@@ -185,7 +185,7 @@ public class UserController {
 	
 	/**
 	 * @author Vedang
-	 * @param ownerId
+	 * @param ownerId - id of owner
 	 * @return owner
 	 */
 	@ApiOperation(value = "Get owner by Id",
@@ -223,8 +223,8 @@ public class UserController {
 	
 	/**
 	 * @author Vedang
-	 * @param pageNo
-	 * @param pageSize
+	 * @param pageNo - page number
+	 * @param pageSize - page size
 	 * @return owner of the pageNo with pageSize
 	 */
 	@ApiOperation(value = "Get owner by page no and page size",
@@ -246,7 +246,7 @@ public class UserController {
 	
 	/**
 	 * @author Naga Vishnu
-	 * @param guardId
+	 * @param guardId - id of guard
 	 * @return guard
 	 */
 	@ApiOperation(value = "Get guard by Id",
@@ -284,8 +284,8 @@ public class UserController {
 	
 	/**
 	 * @author Naga Vishnu
-	 * @param pageNo
-	 * @param pageSize
+	 * @param pageNo - page number
+	 * @param pageSize - page size
 	 * @return guard of the pageNo with pageSize
 	 */
 	@ApiOperation(value = "Get guards by page no and page size",
@@ -306,7 +306,7 @@ public class UserController {
 	
 	/**
 	 * @author Vikas
-	 * @param user
+	 * @param user - user object
 	 * @return verification
 	 */
 	@ApiOperation(value = "authentication",
@@ -328,9 +328,9 @@ public class UserController {
 	
 	/**
 	 * @author Ram Sai Vajrapu
-	 * @param id
-	 * @param oldPassword
-	 * @param newPassword
+	 * @param id - user id
+	 * @param oldPassword - old password
+	 * @param newPassword - new password
 	 * @return true or false
 	 */
 	@ApiOperation(value = "update password",

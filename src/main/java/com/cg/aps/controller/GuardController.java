@@ -46,8 +46,8 @@ public class GuardController {
 	
 	/**
 	 * @author Ram Sai Vajrapu
-	 * @param alertId
-	 * @return alert
+	 * @param alertId - id of alert
+	 * @return SecurityAlert
 	 */
 	@ApiOperation(value = "Get security alert",
 			response = SecurityAlert.class,
@@ -84,8 +84,8 @@ public class GuardController {
 	
 	/**
 	 * @author Ram Sai Vajrapu
-	 * @param pageNo
-	 * @param pageSize
+	 * @param pageNo - page number
+	 * @param pageSize - page size
 	 * @return alerts of the pageNo with pageSize
 	 */
 	@ApiOperation(value = "Get security alert by page no and page size",
@@ -105,7 +105,7 @@ public class GuardController {
 	
 	/**
 	 * @author Ram Sai Vajrapu
-	 * @param securityAlert
+	 * @param securityAlert - alert object
 	 * @return adds alert
 	 */
 	@ApiOperation(value = "add security alert",
@@ -125,7 +125,7 @@ public class GuardController {
 	
 	/**
 	 * @author Ram Sai Vajrapu
-	 * @param securityAlert
+	 * @param securityAlert - alert object
 	 * @return updating alerts
 	 */
 	@ApiOperation(value = "update security alert",
@@ -145,7 +145,7 @@ public class GuardController {
 	
 	/**
 	 * @author Ram Sai Vajrapu
-	 * @param alert object
+	 * @param securityAlert - alert object
 	 * @return deletes alert
 	 */
 	@ApiOperation(value = "delete security alert",
@@ -168,7 +168,7 @@ public class GuardController {
 	private DeliveryService deliveryService;
 	/**
 	 * @author Shishir
-	 * @param deliveryId
+	 * @param deliveryId - id of delivery
 	 * @return delivery
 	 */
 	@ApiOperation(value = "get delivery by Id",
@@ -206,8 +206,8 @@ public class GuardController {
 	
 	/**
 	 * @author Shishir
-	 * @param pageNo
-	 * @param pageSize
+	 * @param pageNo - page number
+	 * @param pageSize - page size
 	 * @return deliveries of the pageNo with pageSize
 	 */
 	@ApiOperation(value = "get deliveries by page no and page size",
@@ -227,7 +227,7 @@ public class GuardController {
 	
 	/**
 	 * @author Shishir
-	 * @param Delivery
+	 * @param delivery - delivery object
 	 * @return adds delivery
 	 */
 	@ApiOperation(value = "add delivery",
@@ -247,7 +247,7 @@ public class GuardController {
 	
 	/**
 	 * @author Shishir
-	 * @param delivery
+	 * @param delivery - delivery object
 	 * @return updating delivery
 	 */
 	@ApiOperation(value = "update delivery",
@@ -267,7 +267,7 @@ public class GuardController {
 	
 	/**
 	 * @author Shishir
-	 * @param delivery
+	 * @param delivery - delivery object
 	 * @return deleting delivery
 	 */
 	@ApiOperation(value = "delete delivery",
@@ -292,7 +292,7 @@ public class GuardController {
 	
 	/**
 	 * @author Harsh
-	 * @param helpId
+	 * @param helpId - id of help
 	 * @return Help
 	 */
 	@ApiOperation(value = "get domestic help by Id",
@@ -330,8 +330,8 @@ public class GuardController {
 	
 	/**
 	 * @author Harsh
-	 * @param pageNo
-	 * @param pageSize
+	 * @param pageNo - page number
+	 * @param pageSize - page size
 	 * @return helps of the pageNo with pageSize
 	 */
 	@ApiOperation(value = "get domestic help by page no and page size",
@@ -351,7 +351,7 @@ public class GuardController {
 	
 	/**
 	 * @author Harsh
-	 * @param DomesticHelp
+	 * @param domesticHelp - help object
 	 * @return adds domesticHelp
 	 */
 	@ApiOperation(value = "add domestic help",
@@ -371,7 +371,7 @@ public class GuardController {
 	
 	/**
 	 * @author Harsh
-	 * @param DomesticHelp
+	 * @param domesticHelp - help object
 	 * @return updating DomesticHelp
 	 */
 	@ApiOperation(value = "update domestic help",
@@ -391,7 +391,7 @@ public class GuardController {
 	
 	/**
 	 * @author Harsh
-	 * @param DomesticHelp
+	 * @param domesticHelp - help object
 	 * @return deleting DomesticHelp
 	 */
 	@ApiOperation(value = "delete domestic help",
@@ -417,7 +417,7 @@ public class GuardController {
 	
 	/**
 	 * @author Ram Sai Vajrapu
-	 * @param VisitorId
+	 * @param visitorId - id of visitor
 	 * @return Visitor
 	 */
 	@ApiOperation(value = "get visitor by id",
@@ -455,8 +455,8 @@ public class GuardController {
 	
 	/**
 	 * @author Ram Sai Vajrapu
-	 * @param pageNo
-	 * @param pageSize
+	 * @param pageNo - page number
+	 * @param pageSize - page size
 	 * @return Visitor of the pageNo with pageSize
 	 */
 	@ApiOperation(value = "get visitors by page no and page size",
@@ -476,7 +476,7 @@ public class GuardController {
 	
 	/**
 	 * @author Ram Sai Vajrapu
-	 * @param Visitor
+	 * @param visitor - visitor object
 	 * @return adds Visitor
 	 */
 	@ApiOperation(value = "add visitor",
@@ -496,7 +496,7 @@ public class GuardController {
 	
 	/**
 	 * @author Ram Sai Vajrapu
-	 * @param Visitor
+	 * @param visitor - visitor object
 	 * @return updating Visitor
 	 */
 	@ApiOperation(value = "update visitor",
@@ -516,7 +516,7 @@ public class GuardController {
 	
 	/**
 	 * @author Ram Sai Vajrapu
-	 * @param Visitor
+	 * @param visitor - visitor object
 	 * @return deleting Visitor
 	 */
 	@ApiOperation(value = "delete visitor",
@@ -544,7 +544,7 @@ public class GuardController {
 	
 	/**
 	 * @author Naga Vishnu
-	 * @param GuardShiftId
+	 * @param shiftId - id of the guard shift
 	 * @return GuardShift
 	 */
 	@ApiOperation(value = "get guard shift by id",
@@ -582,8 +582,8 @@ public class GuardController {
 	
 	/**
 	 * @author Naga Vishnu
-	 * @param pageNo
-	 * @param pageSize
+	 * @param pageNo - page number
+	 * @param pageSize - page size
 	 * @return GuardShift of the pageNo with pageSize
 	 */
 	@ApiOperation(value = "get guard shift by page no and page size",
@@ -603,7 +603,7 @@ public class GuardController {
 	
 	/**
 	 * @author Naga Vishnu
-	 * @param GuardShift
+	 * @param guardShift - shift object
 	 * @return adds GuardShift
 	 */
 	@ApiOperation(value = "add guard shift",
@@ -623,7 +623,7 @@ public class GuardController {
 	
 	/**
 	 * @author Naga Vishnu
-	 * @param GuardShift
+	 * @param guardShift - shift object
 	 * @return updating GuardShift
 	 */
 	@ApiOperation(value = "update guard shift",
@@ -643,7 +643,7 @@ public class GuardController {
 	
 	/**
 	 * @author Naga Vishnu
-	 * @param GuardShift
+	 * @param guardShift - shift object
 	 * @return deleting GuardShift
 	 */
 	@ApiOperation(value = "delete guard shift",

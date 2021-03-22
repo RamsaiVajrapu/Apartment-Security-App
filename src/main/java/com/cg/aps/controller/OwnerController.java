@@ -48,7 +48,7 @@ public class OwnerController {
 	
 	/**
 	 * @author Ram Sai Vajrapu
-	 * @param alertId
+	 * @param alertId - id of alert
 	 * @return alert
 	 */
 	@ApiOperation(value = "Get security alert",
@@ -86,8 +86,8 @@ public class OwnerController {
 	
 	/**
 	 * @author Ram Sai Vajrapu
-	 * @param pageNo
-	 * @param pageSize
+	 * @param pageNo - page number
+	 * @param pageSize - page size
 	 * @return alerts of the pageNo with pageSize
 	 */
 	@ApiOperation(value = "Get security alert by page no and page size",
@@ -107,7 +107,7 @@ public class OwnerController {
 	
 	/**
 	 * @author Ram Sai Vajrapu
-	 * @param securityAlert
+	 * @param securityAlert - alert object
 	 * @return adds alert
 	 */
 	@ApiOperation(value = "add security alert",
@@ -127,7 +127,7 @@ public class OwnerController {
 	
 	/**
 	 * @author Ram Sai Vajrapu
-	 * @param securityAlert
+	 * @param securityAlert - alert object
 	 * @return updating alerts
 	 */
 	@ApiOperation(value = "update security alert",
@@ -147,8 +147,8 @@ public class OwnerController {
 	
 	/**
 	 * @author Ram Sai Vajrapu
-	 * @param empno
-	 * @return
+	 * @param securityAlert - alert object
+	 * @return deleting alert
 	 */
 	@ApiOperation(value = "delete security alert",
 			response = String.class,
@@ -156,7 +156,7 @@ public class OwnerController {
 			consumes = "security alert object",
 			httpMethod = "DELETE")
 	@DeleteMapping("/alert")
-	public ResponseEntity<String> deleteEmployee(@RequestBody SecurityAlert securityAlert) {
+	public ResponseEntity<String> deleteAlert(@RequestBody SecurityAlert securityAlert) {
 		try {
 			alertService.deleteSecurityAlert(securityAlert);
 			return new ResponseEntity<>("Deleted successfully",HttpStatus.OK);
@@ -174,7 +174,7 @@ public class OwnerController {
 	
 	/**
 	 * @author Shishir
-	 * @param deliveryId
+	 * @param deliveryId - id of delivery
 	 * @return delivery
 	 */
 	@ApiOperation(value = "get delivery by Id",
@@ -212,8 +212,8 @@ public class OwnerController {
 	
 	/**
 	 * @author Shishir
-	 * @param pageNo
-	 * @param pageSize
+	 * @param pageNo - page number
+	 * @param pageSize - page size
 	 * @return deliveries of the pageNo with pageSize
 	 */
 	@ApiOperation(value = "get deliveries by page no and page size",
@@ -233,7 +233,7 @@ public class OwnerController {
 	
 	/**
 	 * @author Shishir
-	 * @param Delivery
+	 * @param delivery - delivery object
 	 * @return adds delivery
 	 */
 	@ApiOperation(value = "add delivery",
@@ -253,7 +253,7 @@ public class OwnerController {
 	
 	/**
 	 * @author Shishir
-	 * @param delivery
+	 * @param delivery - delivery object
 	 * @return updating delivery
 	 */
 	@ApiOperation(value = "update delivery",
@@ -273,7 +273,7 @@ public class OwnerController {
 	
 	/**
 	 * @author Shishir
-	 * @param delivery
+	 * @param delivery - delivery object
 	 * @return deleting delivery
 	 */
 	@ApiOperation(value = "delete delivery",
@@ -298,7 +298,7 @@ public class OwnerController {
 	
 	/**
 	 * @author Harsh
-	 * @param helpId
+	 * @param helpId - id of help
 	 * @return Help
 	 */
 	@ApiOperation(value = "get domestic help by Id",
@@ -336,8 +336,8 @@ public class OwnerController {
 	
 	/**
 	 * @author Harsh
-	 * @param pageNo
-	 * @param pageSize
+	 * @param pageNo - page number
+	 * @param pageSize - page size
 	 * @return helps of the pageNo with pageSize
 	 */
 	@ApiOperation(value = "get domestic help by page no and page size",
@@ -357,7 +357,7 @@ public class OwnerController {
 	
 	/**
 	 * @author Harsh
-	 * @param DomesticHelp
+	 * @param domesticHelp - help object
 	 * @return adds domesticHelp
 	 */
 	@ApiOperation(value = "add domestic help",
@@ -377,7 +377,7 @@ public class OwnerController {
 	
 	/**
 	 * @author Harsh
-	 * @param DomesticHelp
+	 * @param domesticHelp - help object
 	 * @return updating DomesticHelp
 	 */
 	@ApiOperation(value = "update domestic help",
@@ -397,7 +397,7 @@ public class OwnerController {
 	
 	/**
 	 * @author Harsh
-	 * @param DomesticHelp
+	 * @param domesticHelp - help object
 	 * @return deleting DomesticHelp
 	 */
 	@ApiOperation(value = "delete domestic help",
@@ -423,7 +423,7 @@ public class OwnerController {
 	
 	/**
 	 * @author Ram Sai Vajrapu
-	 * @param VisitorId
+	 * @param visitorId - id of visitor
 	 * @return Visitor
 	 */
 	@ApiOperation(value = "get visitor by id",
@@ -461,8 +461,8 @@ public class OwnerController {
 	
 	/**
 	 * @author Ram Sai Vajrapu
-	 * @param pageNo
-	 * @param pageSize
+	 * @param pageNo - page number
+	 * @param pageSize - page size
 	 * @return Visitor of the pageNo with pageSize
 	 */
 	@ApiOperation(value = "get visitors by page no and page size",
@@ -482,7 +482,7 @@ public class OwnerController {
 	
 	/**
 	 * @author Ram Sai Vajrapu
-	 * @param Visitor
+	 * @param visitor - visitor object
 	 * @return adds Visitor
 	 */
 	@ApiOperation(value = "add visitor",
@@ -502,7 +502,7 @@ public class OwnerController {
 	
 	/**
 	 * @author Ram Sai Vajrapu
-	 * @param Visitor
+	 * @param visitor - visitor object
 	 * @return updating Visitor
 	 */
 	@ApiOperation(value = "update visitor",
@@ -522,7 +522,7 @@ public class OwnerController {
 	
 	/**
 	 * @author Ram Sai Vajrapu
-	 * @param Visitor
+	 * @param visitor - visitor object
 	 * @return deleting Visitor
 	 */
 	@ApiOperation(value = "delete visitor",
@@ -548,7 +548,7 @@ public class OwnerController {
 	
 	/**
 	 * @author Devarshi
-	 * @param VehicleId
+	 * @param vehicleId - id of vehicle
 	 * @return Vehicle
 	 */
 	@ApiOperation(value = "get vehicle by id",
@@ -586,8 +586,8 @@ public class OwnerController {
 	
 	/**
 	 * @author Devarshi
-	 * @param pageNo
-	 * @param pageSize
+	 * @param pageNo - page number
+	 * @param pageSize - page size
 	 * @return Vehicle of the pageNo with pageSize
 	 */
 	@ApiOperation(value = "get vehicles by page no and page size",
@@ -607,7 +607,7 @@ public class OwnerController {
 	
 	/**
 	 * @author Devarshi
-	 * @param vehicle
+	 * @param vehicle - vehicle object
 	 * @return adds vehicle
 	 */
 	@ApiOperation(value = "add vehicle",
@@ -627,7 +627,7 @@ public class OwnerController {
 	
 	/**
 	 * @author Devarshi
-	 * @param vehicle
+	 * @param vehicle - vehicle object
 	 * @return updating vehicle
 	 */
 	@ApiOperation(value = "update vehicle",
@@ -647,7 +647,7 @@ public class OwnerController {
 	
 	/**
 	 * @author Devarshi
-	 * @param vehicle
+	 * @param vehicle - vehicle object
 	 * @return deleting vehicle
 	 */
 	@ApiOperation(value = "delete vehicle",
@@ -673,7 +673,7 @@ public class OwnerController {
 	
 	/**
 	 * @author Vedang
-	 * @param flatDetailsId
+	 * @param flatDetailsId - id of flatdetails
 	 * @return flatDetails
 	 */
 	@ApiOperation(value = "get flat details by id",
@@ -711,8 +711,8 @@ public class OwnerController {
 	
 	/**
 	 * @author Vedang
-	 * @param pageNo
-	 * @param pageSize
+	 * @param pageNo - page number
+	 * @param pageSize - page size
 	 * @return flatDetails of the pageNo with pageSize
 	 */
 	@ApiOperation(value = "get flat details by page no and page size",
@@ -732,7 +732,7 @@ public class OwnerController {
 	
 	/**
 	 * @author Vedang
-	 * @param flatDetails
+	 * @param flatDetails - flat object
 	 * @return adds flatDetails
 	 */
 	@ApiOperation(value = "add flat details",
@@ -752,7 +752,7 @@ public class OwnerController {
 	
 	/**
 	 * @author Vedang
-	 * @param flatDetails
+	 * @param flatDetails - flat object
 	 * @return updating flatDetails
 	 */
 	@ApiOperation(value = "update flat details",
@@ -772,7 +772,7 @@ public class OwnerController {
 	
 	/**
 	 * @author Vedang
-	 * @param flatDetails
+	 * @param flatDetails - flat object
 	 * @return deleting flatDetails
 	 */
 	@ApiOperation(value = "delete flat details",
