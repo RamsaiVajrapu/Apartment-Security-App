@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -39,6 +40,7 @@ import io.swagger.annotations.ApiOperation;
 @Api
 @RestController
 @RequestMapping("/api/guard")
+@CrossOrigin(origins = "http://localhost:3000")
 public class GuardController {
 
 	@Autowired
@@ -153,10 +155,11 @@ public class GuardController {
 			tags = "delete-alert",
 			consumes = "security alert object",
 			httpMethod = "DELETE")
-	@DeleteMapping("/alert")
-	public ResponseEntity<String> deleteAlert(@RequestBody SecurityAlert securityAlert) {
+	@DeleteMapping("/alert/{id}")
+	public ResponseEntity<String> deleteAlert(@PathVariable Integer id) {
 		try {
-			alertService.deleteSecurityAlert(securityAlert);
+			SecurityAlert alert = alertService.findByPk(id);
+			alertService.deleteSecurityAlert(alert);
 			return new ResponseEntity<>("Deleted successfully",HttpStatus.OK);
 		}catch(RecordNotFoundException e){
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST,e.getMessage());
@@ -275,9 +278,10 @@ public class GuardController {
 			tags = "delete-delivery",
 			consumes = "delivery object",
 			httpMethod = "DELETE")
-	@DeleteMapping("/delivery")
-	public ResponseEntity<String> deleteDelivery(@RequestBody Delivery delivery) {
+	@DeleteMapping("/delivery/{id}")
+	public ResponseEntity<String> deleteDelivery(@PathVariable Integer id) {
 		try {
+			Delivery delivery = deliveryService.findByPk(id);
 			deliveryService.deleteDelivery(delivery);
 			return new ResponseEntity<>("Deleted successfully",HttpStatus.OK);
 		}catch(RecordNotFoundException e){
@@ -399,9 +403,10 @@ public class GuardController {
 			tags = "delete-help",
 			consumes = "domestic help",
 			httpMethod = "DELETE")
-	@DeleteMapping("/domesticHelp")
-	public ResponseEntity<String> deleteHelp(@RequestBody DomesticHelp domesticHelp) {
+	@DeleteMapping("/domesticHelp/{id}")
+	public ResponseEntity<String> deleteHelp(@PathVariable Integer id) {
 		try {
+			DomesticHelp domesticHelp = domesticHelpService.findByPk(id);
 			domesticHelpService.deleteDomesticHelp(domesticHelp);
 			return new ResponseEntity<>("Deleted successfully",HttpStatus.OK);
 		}catch(RecordNotFoundException e){
@@ -524,9 +529,10 @@ public class GuardController {
 			tags = "delete-visitor",
 			consumes = "visitor object",
 			httpMethod = "DELETE")
-	@DeleteMapping("/visitor")
-	public ResponseEntity<String> deleteVisitor(@RequestBody Visitor visitor) {
+	@DeleteMapping("/visitor/{id}")
+	public ResponseEntity<String> deleteVisitor(@PathVariable Integer id) {
 		try {
+			Visitor visitor = visitorService.findByPk(id);
 			visitorService.deleteVisitor(visitor);
 			return new ResponseEntity<>("Deleted successfully",HttpStatus.OK);
 		}catch(RecordNotFoundException e){
@@ -651,9 +657,10 @@ public class GuardController {
 			tags = "delete-guardShift",
 			consumes = "guardShift object",
 			httpMethod = "DELETE")
-	@DeleteMapping("/guardShift")
-	public ResponseEntity<String> deleteGuardShift(@RequestBody GuardShift guardShift) {
+	@DeleteMapping("/guardShift/{id}")
+	public ResponseEntity<String> deleteGuardShift(@PathVariable Integer id) {
 		try {
+			GuardShift guardShift = guardShiftService.findByPk(id);
 			guardShiftService.deleteGuardShift(guardShift);
 			return new ResponseEntity<>("Deleted successfully",HttpStatus.OK);
 		}catch(RecordNotFoundException e){

@@ -1,6 +1,6 @@
 package com.cg.aps.entity;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -34,7 +34,7 @@ public class Delivery {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer deliveryId;
 	private String personName;
-	private LocalDateTime deliveryDateTime;
+	private LocalDate deliveryDate;
 	private String status;
 	@ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
 	@JoinColumn(foreignKey = @ForeignKey(name = "guardId"),name = "guardId")

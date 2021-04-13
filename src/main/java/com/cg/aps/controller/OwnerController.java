@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -41,6 +42,7 @@ import io.swagger.annotations.ApiOperation;
 @Api
 @RestController
 @RequestMapping("/api/owner")
+@CrossOrigin(origins = "http://localhost:3000")
 public class OwnerController {
 
 	@Autowired
@@ -155,10 +157,11 @@ public class OwnerController {
 			tags = "delete-alert",
 			consumes = "security alert object",
 			httpMethod = "DELETE")
-	@DeleteMapping("/alert")
-	public ResponseEntity<String> deleteAlert(@RequestBody SecurityAlert securityAlert) {
+	@DeleteMapping("/alert/{id}")
+	public ResponseEntity<String> deleteAlert(@PathVariable Integer id) {
 		try {
-			alertService.deleteSecurityAlert(securityAlert);
+			SecurityAlert alert = alertService.findByPk(id);
+			alertService.deleteSecurityAlert(alert);
 			return new ResponseEntity<>("Deleted successfully",HttpStatus.OK);
 		}catch(RecordNotFoundException e){
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST,e.getMessage());
@@ -281,9 +284,10 @@ public class OwnerController {
 			tags = "delete-delivery",
 			consumes = "delivery object",
 			httpMethod = "DELETE")
-	@DeleteMapping("/delivery")
-	public ResponseEntity<String> deleteDelivery(@RequestBody Delivery delivery) {
+	@DeleteMapping("/delivery/{id}")
+	public ResponseEntity<String> deleteDelivery(@PathVariable Integer id) {
 		try {
+			Delivery delivery = deliveryService.findByPk(id);
 			deliveryService.deleteDelivery(delivery);
 			return new ResponseEntity<>("Deleted successfully",HttpStatus.OK);
 		}catch(RecordNotFoundException e){
@@ -405,9 +409,10 @@ public class OwnerController {
 			tags = "delete-help",
 			consumes = "domestic help",
 			httpMethod = "DELETE")
-	@DeleteMapping("/domesticHelp")
-	public ResponseEntity<String> deleteHelp(@RequestBody DomesticHelp domesticHelp) {
+	@DeleteMapping("/domesticHelp/{id}")
+	public ResponseEntity<String> deleteHelp(@PathVariable Integer id) {
 		try {
+			DomesticHelp domesticHelp = domesticHelpService.findByPk(id);
 			domesticHelpService.deleteDomesticHelp(domesticHelp);
 			return new ResponseEntity<>("Deleted successfully",HttpStatus.OK);
 		}catch(RecordNotFoundException e){
@@ -530,9 +535,10 @@ public class OwnerController {
 			tags = "delete-visitor",
 			consumes = "visitor object",
 			httpMethod = "DELETE")
-	@DeleteMapping("/visitor")
-	public ResponseEntity<String> deleteVisitor(@RequestBody Visitor visitor) {
+	@DeleteMapping("/visitor/{id}")
+	public ResponseEntity<String> deleteVisitor(@PathVariable Integer id) {
 		try {
+			Visitor visitor = visitorService.findByPk(id);
 			visitorService.deleteVisitor(visitor);
 			return new ResponseEntity<>("Deleted successfully",HttpStatus.OK);
 		}catch(RecordNotFoundException e){
@@ -655,9 +661,10 @@ public class OwnerController {
 			tags = "delete-vehicle",
 			consumes = "vehicle object",
 			httpMethod = "DELETE")
-	@DeleteMapping("/vehicle")
-	public ResponseEntity<String> deleteVehicle(@RequestBody Vehicle vehicle) {
+	@DeleteMapping("/vehicle/{id}")
+	public ResponseEntity<String> deleteVehicle(@PathVariable String id) {
 		try {
+			Vehicle vehicle = vehicleService.findByPk(id);
 			vehicleService.deleteVehicle(vehicle);
 			return new ResponseEntity<>("Deleted successfully",HttpStatus.OK);
 		}catch(RecordNotFoundException e){
@@ -780,9 +787,10 @@ public class OwnerController {
 			tags = "delete-flatdetails",
 			consumes = "flatDetails object",
 			httpMethod = "DELETE")
-	@DeleteMapping("/flatDetails")
-	public ResponseEntity<String> deleteflatDetails(@RequestBody FlatDetails flatDetails) {
+	@DeleteMapping("/flatDetails/{id}")
+	public ResponseEntity<String> deleteflatDetails(@PathVariable Integer id) {
 		try {
+			FlatDetails flatDetails = flatDetailsService.findByPk(id);
 			flatDetailsService.deleteFlatDetails(flatDetails);
 			return new ResponseEntity<>("Deleted successfully",HttpStatus.OK);
 		}catch(RecordNotFoundException e){

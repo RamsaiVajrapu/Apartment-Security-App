@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import javax.transaction.Transactional;
@@ -31,8 +32,8 @@ public class VisitorTest {
 		Visitor visitor = new Visitor();
 		visitor.setFlatNo(12);
 		visitor.setVisitorName("Kumar");
-		visitor.setArrivalDateTime(LocalDateTime.now());
-		visitor.setDepartureDateTime(null);
+		visitor.setArrivalDate(LocalDate.now());
+		visitor.setDepartureDate(null);
 		Integer id = visitorService.addVisitor(visitor);
 		return visitorService.findByPk(id);
 	} 
@@ -54,9 +55,9 @@ public class VisitorTest {
 	public void testEditVisitor() throws DuplicateRecordException, RecordNotFoundException {
 		Visitor visitor = addVisitor();
 		visitor.setFlatNo(16);
-		visitor.setDepartureDateTime(LocalDateTime.of(2021, 03, 23, 17, 20));
+		visitor.setDepartureDate(LocalDate.of(2021, 03, 23));
 		visitorService.updateVisitor(visitor);
-		assertNotEquals(LocalDateTime.now(),visitorService.findByPk(visitor.getVisitorId()).getDepartureDateTime());
+		assertNotEquals(LocalDateTime.now(),visitorService.findByPk(visitor.getVisitorId()).getDepartureDate());
 		assertEquals(16,visitorService.findByPk(visitor.getVisitorId()).getFlatNo());
 	}
 	

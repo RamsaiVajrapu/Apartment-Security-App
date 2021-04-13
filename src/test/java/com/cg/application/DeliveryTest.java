@@ -3,7 +3,7 @@ package com.cg.application;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import javax.transaction.Transactional;
 
@@ -29,7 +29,7 @@ public class DeliveryTest {
 	public Delivery addDelivery() throws DuplicateRecordException, RecordNotFoundException {
 		Delivery delivery = new Delivery();
 		delivery.setPersonName("Rohit");
-		delivery.setDeliveryDateTime(LocalDateTime.now());
+		delivery.setDeliveryDate(LocalDate.now());
 		delivery.setStatus("delivered");
 		Integer id = deliveryService.addDelivery(delivery);
 		return deliveryService.findByPk(id);

@@ -1,6 +1,6 @@
 package com.cg.aps.entity;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -36,8 +36,8 @@ public class Visitor {
 	private Integer visitorId;
 	private String visitorName;
 	private Integer flatNo;
-	private LocalDateTime arrivalDateTime;
-	private LocalDateTime departureDateTime;
+	private LocalDate arrivalDate;
+	private LocalDate departureDate;
 	@ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
 	@JoinColumn(foreignKey = @ForeignKey(name = "guardId"),name = "guardId")
 	@JsonIgnore

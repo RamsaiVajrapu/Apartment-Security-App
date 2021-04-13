@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -36,6 +37,7 @@ import io.swagger.annotations.ApiOperation;
 @Api
 @RestController
 @RequestMapping("/api/user")
+@CrossOrigin(origins = "http://localhost:3000")
 public class UserController {
 	
 	@Autowired
@@ -165,9 +167,10 @@ public class UserController {
 			tags = "delete-user",
 			consumes = "User object",
 			httpMethod = "DELETE")
-	@DeleteMapping("/users")
-	public ResponseEntity<String> deleteUser(@RequestBody User user){
+	@DeleteMapping("/users/{id}")
+	public ResponseEntity<String> deleteUser(@PathVariable Integer id){
 		try {
+			User user = userService.findByPk(id);
 			userService.deleteUser(user);
 			if(user.getRole().toLowerCase().equals("owner")) {
 				Owner owner = ownerService.findByPk(user.getUserId());
